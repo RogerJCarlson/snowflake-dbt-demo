@@ -1,0 +1,119 @@
+/*******************************************************************************
+# Copyright 2020 Spectrum Health 
+# http://www.spectrumhealth.org
+#
+# Unless required by applicable law or agreed to in writing, this software
+# is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
+# either express or implied.
+#
+********************************************************************************/
+
+/*******************************************************************************
+
+Name: Pull_hsp_visit_occurrence_3
+
+Author: Roger Carlson
+		Spectrum Health
+		roger.carlson@spectrumhealth.org
+
+Last Revised: 14-June-2020
+	
+Description: This script is the 1st it a two-part process.  It is used in conjunction with 
+	(and before) app_visit_occurrence_hsp_3. 
+
+	Its purpose is to query data from Epic Clarity and append this data to VISIT_OCCURRENCE_ClarityHosp_ALL
+	which will be used later in app_visit_occurrence_hsp_3.  The table may have numerous
+	extraneous fields which can be used for verifying the base data returned from Clarity. 
+
+	VISIT_OCCURRENCE_ClarityHosp_ALL may also be used in conjunction with other "APP_" scripts.
+
+Structure: (if your structure is different, you will have to modify the code to match)
+    Databases:SH_OMOP_DB_PROD, SH_CLINICAL_DB_PROD
+    Schemas: SH_OMOP_DB_PROD.OMOP_CLARITY, SH_OMOP_DB_PROD.CDM, SH_CLINICAL_DB_PROD.EPIC_CLARITY_LZ
+
+Note: I don't use aliases unless necessary for joining. I find them more confusing than helpful.
+
+********************************************************************************/
+--
+--USE ROLE SF_SH_OMOP_DEVELOPER;
+--
+--USE SCHEMA SH_CLINICAL_DB_PROD.EPIC_CLARITY_LZ;
+----USE SCHEMA SH_OMOP_DB_PROD.OMOP_CLARITY;
+----USE SCHEMA SH_OMOP_DB_PROD.CDM;
+--
+--USE WAREHOUSE SH_OMOP_DATA_SCIENCE_WH;
+
+CREATE OR REPLACE TABLE SH_OMOP_DB_PROD.OMOP_CLARITY.VISIT_OCCURRENCE_CLARITYHOSP_ALL 
+AS  
+
+SELECT DISTINCT SUBSTRING(AOU_DRIVER.AOU_ID, 2, LEN(AOU_DRIVER.AOU_ID)) AS PERSON_ID
+	,AOU_DRIVER.AOU_ID
+	,PAT_ENC_HSP.PAT_ID
+	,PAT_ENC_HSP.PAT_ENC_CSN_ID
+
+	,PAT_ENC_HSP.ADT_PAT_CLASS_C
+	, ZC_PAT_CLASS.NAME AS ADT_PAT_CLASS_NAME
+
+	,PAT_ENC_HSP.HOSP_ADMSN_TIME
+	,PAT_ENC_HSP.INP_ADM_DATE
+	,PAT_ENC_HSP.EXP_ADMISSION_TIME
+	,PAT_ENC_HSP.OP_ADM_DATE
+	,PAT_ENC_HSP.EMER_ADM_DATE
+	,PAT_ENC_HSP.INSTANT_OF_ENTRY_TM
+
+	,PAT_ENC_HSP.HOSP_DISCH_TIME
+	,PAT_ENC_HSP.ED_DISP_TIME
+
+	,PAT_ENC_HSP.HOSPITAL_AREA_ID
+	,PAT_ENC_HSP.HSP_ACCOUNT_ID
+	,PAT_ENC_HSP.INPATIENT_DATA_ID
+
+	,PAT_ENC_HSP.IP_EPISODE_ID
+	,PAT_ENC_HSP.ED_EPISODE_ID
+
+	,PAT_ENC_HSP.ED_DISPOSITION_C
+	, ZC_ED_DISPOSITION.NAME AS ED_DISPOSITION_NAME
+
+	,PAT_ENC_HSP.ADMIT_SOURCE_C
+	,ZC_ADM_SOURCE.NAME AS ADMIT_SOURCE_NAME
+
+	,PAT_ENC_HSP.DISCH_DISP_C
+	,ZC_DISCH_DISP.NAME AS DISCH_DISP_NAME
+
+	,PAT_ENC_HSP.BILL_ATTEND_PROV_ID
+
+	,PAT_ENC_HSP.ADT_PATIENT_STAT_C
+	,ZC_PAT_STATUS.NAME AS ADT_PATIENT_STAT_NAME
+
+	, HSP_ACCOUNT.ATTENDING_PROV_ID
+	, HSP_ACCOUNT.REFERRING_PROV_ID
+	, HSP_ACCOUNT.ADM_DATE_TIME
+	, HSP_ACCOUNT.DISCH_DATE_TIME
+
+
+--INTO SH_OMOP_DB_PROD.OMOP_CLARITY.VISIT_OCCURRENCE_CLARITYHOSP_ALL
+FROM SH_CLINICAL_DB_PROD.EPIC_CLARITY_LZ.PAT_ENC_HSP
+
+	INNER JOIN  SH_OMOP_DB_PROD.CDM.AOU_DRIVER
+		ON PAT_ENC_HSP.PAT_ID = AOU_DRIVER.EPIC_PAT_ID
+
+	LEFT JOIN SH_CLINICAL_DB_PROD.EPIC_CLARITY_LZ.ZC_PAT_CLASS
+		ON PAT_ENC_HSP.ADT_PAT_CLASS_C = ZC_PAT_CLASS.ADT_PAT_CLASS_C
+
+	LEFT JOIN SH_CLINICAL_DB_PROD.EPIC_CLARITY_LZ.ZC_PAT_STATUS
+		ON PAT_ENC_HSP.ADT_PATIENT_STAT_C = ZC_PAT_STATUS.ADT_PATIENT_STAT_C
+
+	LEFT JOIN SH_CLINICAL_DB_PROD.EPIC_CLARITY_LZ.ZC_ADM_SOURCE
+		ON PAT_ENC_HSP.ADMIT_SOURCE_C = ZC_ADM_SOURCE.ADMIT_SOURCE_C
+
+	LEFT JOIN SH_CLINICAL_DB_PROD.EPIC_CLARITY_LZ.ZC_DISCH_DISP
+		ON PAT_ENC_HSP.DISCH_DISP_C = ZC_DISCH_DISP.DISCH_DISP_C
+
+	LEFT JOIN 	SH_CLINICAL_DB_PROD.EPIC_CLARITY_LZ.ZC_ED_DISPOSITION
+		ON PAT_ENC_HSP.ED_DISPOSITION_C	= ZC_ED_DISPOSITION.ED_DISPOSITION_C
+		
+	LEFT JOIN SH_CLINICAL_DB_PROD.EPIC_CLARITY_LZ.HSP_ACCOUNT
+		ON PAT_ENC_HSP.HSP_ACCOUNT_ID = HSP_ACCOUNT.HSP_ACCOUNT_ID
+
+WHERE HOSP_DISCH_TIME IS NOT NULL
+
