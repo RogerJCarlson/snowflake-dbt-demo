@@ -1,0 +1,23 @@
+{
+    "sqltools.connections": [
+        {
+            "authenticator": "EXTERNALBROWSER",
+            "ocspOptions": {
+                "ocspFailOpen": true
+            },
+            "snowflakeOptions": {
+                "clientSessionKeepAlive": true,
+                "clientSessionKeepAliveHeartbeatFrequency": 3600,
+                "schema": "CDM",
+                "role": "SF_SH_OMOP_DEVELOPER"
+            },
+            "previewLimit": 50,
+            "driver": "Snowflake",
+            "account": "spectrumhealth.us-east-2.aws",
+            "username": "roger.carlson@spectrumhealth.org",
+            "database": "SH_OMOP_DB_PROD",
+            "warehouse": "SH_OMOP_DATA_SCIENCE_WH",
+            "name": "Snowflake"
+        }
+    ]
+}
