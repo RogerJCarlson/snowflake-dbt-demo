@@ -1,0 +1,20 @@
+SELECT DISTINCT T_POS.POS_ID 
+	, T_POS.POS_NAME 
+	, LOCATION_ID 
+	, POS_TYPE 
+	, ZC_STATE.ABBR AS STATE_ABBR
+	,ZC_COUNTY.COUNTY_C as COUNTY_C
+
+FROM {{ref('T_POS')}}
+	LEFT JOIN {{ source('CLARITY','ZC_STATE')}}	 as ZC_STATE 
+		ON T_POS.STATE_C = ZC_STATE.STATE_C
+	LEFT JOIN {{ source('CLARITY','ZC_COUNTY')}}	 as ZC_COUNTY 
+		ON T_POS.COUNTY_C = ZC_COUNTY.COUNTY_C
+	LEFT JOIN {{ source('OMOP','LOCATION')}}	 as LOCATION --SH_OMOP_DB_PROD.CDM.location 
+		ON location.location_source_value = LEFT(COALESCE(T_POS.ADDRESS_LINE_1, '') 
+    										|| COALESCE(T_POS.ADDRESS_LINE_2, '') 
+    										|| COALESCE(T_POS.CITY, '') 
+    										|| COALESCE(LEFT(ZC_STATE.ABBR, 2), '') 
+    										|| COALESCE(T_POS.ZIP, '') 
+    										|| COALESCE(ZC_COUNTY.COUNTY_C, ''), 50)
+WHERE T_POS.POS_ID IS NOT NULL

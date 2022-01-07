@@ -19,3 +19,14 @@ models:
         tests:
           - unique
           - not_null
+  
+  - name: location_clarity_all 
+    description: "1a_pull_location_531"
+    columns:
+      - name: ADDRESS_1
+      - name: ADDRESS_2
+      - name: CITY
+      - name: COUNTY
+      - name: LOCATION_SOURCE_VALUE
+      - name: STATE
+      - name: ZIP
