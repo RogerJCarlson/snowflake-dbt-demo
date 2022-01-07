@@ -8,7 +8,7 @@
             "snowflakeOptions": {
                 "clientSessionKeepAlive": true,
                 "clientSessionKeepAliveHeartbeatFrequency": 3600,
-                "schema": "CDM",
+                "schema": "OMOP",
                 "role": "SF_SH_OMOP_DEVELOPER"
             },
             "previewLimit": 50,
