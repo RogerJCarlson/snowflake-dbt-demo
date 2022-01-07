@@ -1,4 +1,4 @@
 version: 2
 
 models:
-- name: location_clarity_all 
+- name: LOCATION_CLARITY_ALL 
