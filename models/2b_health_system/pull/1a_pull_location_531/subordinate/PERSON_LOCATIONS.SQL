@@ -1,6 +1,9 @@
 -----------------------------------------------
 -- PERSON_LOCATIONS
 -----------------------------------------------
+
+  {{ config(materialized='ephemeral') }}
+
 SELECT
     DISTINCT MIN(PATIENT.ADD_LINE_1) AS ADDRESS_1
     , MIN(PATIENT.ADD_LINE_2) AS ADDRESS_2

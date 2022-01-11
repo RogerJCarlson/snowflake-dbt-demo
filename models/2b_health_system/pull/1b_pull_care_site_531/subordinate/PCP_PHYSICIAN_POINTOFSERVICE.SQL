@@ -1,4 +1,4 @@
-
+  {{ config(materialized='ephemeral') }}
 
     -- PCP PHYSICIAN POINTOFSERVICE	
     SELECT DISTINCT CLARITY_POS.*, ZC_STATE.ABBR as STATE_ABBR, ZC_COUNTY.NAME as COUNTY

@@ -1,4 +1,8 @@
+  {{ config(materialized='ephemeral') }}
+
 --Encounter physician PointOfService
+
+  
 	SELECT DISTINCT CLARITY_POS.*, ZC_STATE.ABBR as STATE_ABBR, ZC_COUNTY.NAME AS COUNTY
 	FROM   {{ source('CDM','AOU_DRIVER')}}	 as AOU_DRIVER 
     	INNER JOIN {{ source('CLARITY','PAT_ENC')}}	 as PAT_ENC 

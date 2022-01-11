@@ -1,6 +1,9 @@
 -----------------------------------------------
 -- CARE_SITE_LOCATIONS
 -----------------------------------------------
+
+  {{ config(materialized='ephemeral') }}
+
 SELECT DISTINCT CLARITY_POS.ADDRESS_LINE_1 AS ADDRESS_1
 	,CLARITY_POS.ADDRESS_LINE_2 AS ADDRESS_2
 	,CLARITY_POS.CITY AS CITY

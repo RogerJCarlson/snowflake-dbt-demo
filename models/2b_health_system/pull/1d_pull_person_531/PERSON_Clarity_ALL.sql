@@ -1,0 +1,54 @@
+SELECT DISTINCT
+    SUBSTRING(AOU_DRIVER.AOU_ID, 2, LEN(AOU_DRIVER.AOU_ID))     AS PERSON_ID
+    , YEAR(PATIENT.BIRTH_DATE)                                  AS YEAR_OF_BIRTH
+    , MONTH(PATIENT.BIRTH_DATE)                                 AS MONTH_OF_BIRTH
+    , DAY(PATIENT.BIRTH_DATE)                                   AS DAY_OF_BIRTH
+    , PATIENT.BIRTH_DATE										AS BIRTH_DATETIME
+    , ZC_SEX.NAME                                               AS ZC_SEX_NAME
+    , ZC_PATIENT_RACE.PATIENT_RACE_C
+    , ZC_PATIENT_RACE.NAME                                      AS ZC_PATIENT_RACE_NAME
+    , ZC_ETHNIC_GROUP.ETHNIC_GROUP_C
+    , ZC_ETHNIC_GROUP.NAME                                      AS ZC_ETHNIC_GROUP_NAME
+    , PATIENT.CUR_PCP_PROV_ID
+
+    , PATIENT.CUR_PRIM_LOC_ID                                            
+    , AOU_DRIVER.AOU_ID                                                      
+    , PATIENT.SEX_C
+    , LEFT(COALESCE(PATIENT.ADD_LINE_1, '') 
+                    || COALESCE(PATIENT.ADD_LINE_2, '') 
+                    || COALESCE(PATIENT.CITY, '') 
+                    || COALESCE(LEFT(ZC_STATE.ABBR, 2), '') 
+                    || COALESCE(PATIENT.ZIP, '') 
+                    || COALESCE(ZC_COUNTY.COUNTY_C, ''), 50)    AS LOCATION_SOURCE_VALUE
+    	,PATIENT.ADD_LINE_1
+		,PATIENT.ADD_LINE_2
+		,PATIENT.CITY
+		,ZC_STATE.ABBR
+		,PATIENT.ZIP
+		,ZC_COUNTY.COUNTY_C
+
+--INTO OMOP_Clarity.PERSON_Clarity_ALL
+FROM   {{ source('CDM','AOU_DRIVER')}} AS AOU_DRIVER 
+
+    INNER JOIN   {{ source('CLARITY','PATIENT')}} AS PATIENT 
+    	ON PATIENT.PAT_ID = AOU_DRIVER.EPIC_PAT_ID
+ 
+	LEFT JOIN  {{ref('PATIENT_RACE_MAX')}} AS PATIENT_RACE_MAX 
+		ON PATIENT.PAT_ID = PATIENT_RACE_MAX.PAT_ID
+		
+	LEFT JOIN   {{ source('CLARITY','ZC_PATIENT_RACE')}}  AS ZC_PATIENT_RACE
+		ON PATIENT_RACE_MAX.PATIENT_RACE_C = ZC_PATIENT_RACE.PATIENT_RACE_C
+		
+	LEFT JOIN   {{ source('CLARITY','ZC_ETHNIC_GROUP')}}  AS ZC_ETHNIC_GROUP
+		ON ZC_ETHNIC_GROUP.ETHNIC_GROUP_C = PATIENT.ETHNIC_GROUP_C
+		
+	INNER JOIN   {{ source('CLARITY','ZC_SEX')}}  AS ZC_SEX
+		ON ZC_SEX.RCPT_MEM_SEX_C = PATIENT.SEX_C
+		
+	LEFT JOIN   {{ source('CLARITY','ZC_STATE')}} AS ZC_STATE
+		ON PATIENT.STATE_C = ZC_STATE.STATE_C
+		
+	LEFT JOIN   {{ source('CLARITY','ZC_COUNTY')}} AS ZC_COUNTY
+		ON PATIENT.COUNTY_C = ZC_COUNTY.COUNTY_C
+
+
