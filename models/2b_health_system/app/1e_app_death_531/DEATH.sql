@@ -1,3 +1,6 @@
+--DEATH
+{{ config(materialized = 'table') }}
+
 SELECT  PERSON_ID
       ,DEATH_DATE
       ,DEATH_DATETIME
