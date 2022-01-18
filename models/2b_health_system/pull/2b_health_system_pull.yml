@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: LOCATION_CLARITY_ALL
+    description: raw location data for location from Clarity
