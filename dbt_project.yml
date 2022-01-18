@@ -43,7 +43,7 @@ snapshot-paths: ["snapshots"]
 target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
-  - "dbt_packages"
+#  - "dbt_packages"
 
 
 # Configuring models
@@ -56,7 +56,9 @@ models:
   AOU_OMOP:
     2b_health_system:
       app:
-        +materialized: table
+        +materialized: view
       pull:
         +materialized: view
   
+on-run-end:
+  - "PUT file://./logs/dbt.log @DBT_LOG_FILE"

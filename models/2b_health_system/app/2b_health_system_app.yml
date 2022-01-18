@@ -1,0 +1,234 @@
+version: 2
+
+models:
+  - name: LOCATION
+    description: The LOCATION table represents a generic way to capture physical location or address information of Persons and Care Sites.
+    columns: 
+      - name: LOCATION_ID
+        description: unique id
+        tests:
+          - unique
+          - not_null
+      - name: LOCATION_SOURCE_VALUE
+        description: Concatenation of all text values to JOIN to CARE_SITE table.            
+  - name: CARE_SITE
+    description: The CARE_SITE table contains a list of uniquely identified institutional (physical or organizational) units where healthcare delivery is practiced (offices, wards, hospitals, clinics, etc.).
+    columns: 
+      - name: CARE_SITE_ID
+        tests:
+          - unique
+          - not_null
+
+      - name: LOCATION_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('LOCATION')
+              field: LOCATION_ID  
+
+      - name: PLACE_OF_SERVICE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID
+
+  - name: PROVIDER
+    description: The PROVIDER table contains a list of uniquely identified healthcare providers. These are individuals providing hands-on healthcare to patients, such as physicians, nurses, midwives, physical therapists etc.
+    columns: 
+      - name: PROVIDER_ID
+        tests:
+          - unique
+          - not_null
+
+      - name: CARE_SITE_ID
+        tests:
+          - relationships:
+              to: ref('CARE_SITE')
+              field: CARE_SITE_ID 
+
+      - name: GENDER_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID   
+
+      - name: GENDER_SOURCE_CONCEPT_ID
+        description: Not Applicable - Value:0      
+        tests:
+          - accepted_values:
+              values:
+                - 0
+
+      - name: SPECIALTY_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+
+      - name: SPECIALTY_SOURCE_CONCEPT_ID
+        description: Not Applicable - Value:0
+        tests:
+          - accepted_values:
+              values:
+                - 0
+
+  - name: PERSON
+    description: This table serves as the central identity management for all Persons in the database. It contains records that uniquely identify each person or patient, and some demographic information.
+    columns: 
+      - name: PERSON_ID
+        tests:
+          - unique
+          - not_null
+
+      - name: CARE_SITE_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('CARE_SITE')
+              field: CARE_SITE_ID
+
+      - name: ETHNICITY_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+
+      - name: ETHNICITY_SOURCE_CONCEPT_ID
+        description: Not Applicable - Value:0      
+        tests:
+          - accepted_values:
+              values:
+                - 0
+
+      - name: GENDER_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+
+      - name: GENDER_SOURCE_CONCEPT_ID
+        description: Not Applicable - Value:0      
+        tests:
+          - accepted_values:
+              values:
+                - 0
+
+      - name: LOCATION_ID
+        tests:
+          - not_null
+          - relationships:
+              to: ref('LOCATION')
+              field: LOCATION_ID 
+
+      - name: PROVIDER_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('PROVIDER')
+              field: PROVIDER_ID
+           
+      - name: RACE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+ 
+      - name: RACE_SOURCE_CONCEPT_ID
+        description: Not Applicable - Value:0      
+        tests:
+          - accepted_values:
+              values:
+                - 0
+
+  - name: DEATH
+    description: The death domain contains the clinical event for how and when a Person dies. 
+    columns: 
+      - name: PERSON_ID
+        tests:
+          - unique
+          - not_null    
+          - relationships:
+              to: ref('PERSON')
+              field: PERSON_ID 
+
+      - name: CAUSE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+  
+      - name: CAUSE_SOURCE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+
+      - name: DEATH_TYPE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+            
+
+  - name: SPECIMEN
+    columns: 
+      - name: SPECIMEN_ID
+        tests:
+          - unique
+          - not_null 
+
+      - name: PERSON_ID
+        tests:
+          - relationships:
+              to: ref('PERSON')
+              field: PERSON_ID
+
+      - name: ANATOMIC_SITE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+
+      - name: DISEASE_STATUS_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+            
+      - name: SPECIMEN_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+              
+      - name: SPECIMEN_TYPE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+              
+      - name: UNIT_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 

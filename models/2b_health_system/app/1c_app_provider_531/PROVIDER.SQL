@@ -1,4 +1,4 @@
-
+{{ config(materialized = 'table') }}
 
 SELECT DISTINCT PROV_ID AS PROVIDER_ID
     ,PROV_NAME AS PROVIDER_NAME
