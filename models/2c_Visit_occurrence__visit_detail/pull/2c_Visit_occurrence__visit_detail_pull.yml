@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: VISIT_DETAIL_CLARITYHOSP_ALL
+    description: view raw  data for VISIT_DETAIL from Clarity          
+
+
+
+  - name: VISIT_OCCURRENCE_CLARITYAMB_ALL
+    description: view raw  data for AMBULATORY VISIT_OCCURRENCE from Clarity        
+
+
+
+  - name: VISIT_OCCURRENCE_CLARITYHOSP_ALL
+    description: view raw  data for HOSPITAL VISIT_OCCURRENCE from Clarity     
