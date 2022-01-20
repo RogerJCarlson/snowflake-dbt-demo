@@ -1,6 +1,12 @@
 version: 2
 
 models:
+  - name: VISIT_OCCURRENCE_AMB_F2F
+    description: Subordinate view to VISIT_OCCURRENCE holding the AMBULATORY VISITS. 
+
+  - name: VISIT_OCCURRENCE_HSP
+    description: Subordinate view to VISIT_OCCURRENCE holding the HOSPITAL VISITS. 
+
   - name: VISIT_OCCURRENCE
     description: The VISIT_OCCURRENCE table contains Events where Persons engage with the healthcare system for a duration of time. 
     columns: 
