@@ -1,5 +1,55 @@
 version: 2
 
 models:
+  - name: CARE_SITE_LOCATIONS
+    description: ephemeral subordinate to LOCATION_CLARITY_ALL holding the CARE_SITE_LOCATIONS. 
+
+  - name: PERSON_LOCATIONS
+    description: ephemeral subordinate to LOCATION_CLARITY_ALL holding the PERSON_LOCATIONS. 
+
   - name: LOCATION_CLARITY_ALL
-    description: raw location data for location from Clarity
+    description:  view raw data for LOCATION from Clarity 
+
+
+
+  - name: ENC_PHYSICIAN_POINTOFSERVICE
+    description: ephemeral subordinate to CARE_SITE_CLARITY_ALL holding the ENC_PHYSICIAN_POINTOFSERVICE. 
+
+  - name: PCP_PHYSICIAN_POINTOFSERVICE
+    description: ephemeral subordinate to CARE_SITE_CLARITY_ALL holding the PCP_PHYSICIAN_POINTOFSERVICE. 
+
+  - name: T_POS
+    description: ephemeral subordinate to CARE_SITE_CLARITY_ALL unioning the ENC_PHYSICIAN_POINTOFSERVICE and PCP_PHYSICIAN_POINTOFSERVICE. 
+
+  - name: CARE_SITE_CLARITY_ALL
+    description: raw view data for CARE_SITE from Clarity          
+
+
+
+  - name: PROVIDER_CLARITY_ALL
+    description: view raw  data for PROVIDER from Clarity        
+
+
+
+  - name: MAX_RACE
+    description: ephemeral subordinate to PATIENT_RACE_MAX . 
+
+  - name: PATIENT_RACE_MAX
+    description: ephemeral subordinate to PERSON_CLARITY_ALL finds the latest 'race' value for a patient. 
+
+  - name: PERSON_CLARITY_ALL
+    description: view raw  data for PERSON from Clarity          
+
+
+
+  - name: DEATH_CLARITY_ALL
+    description: view raw  data for DEATH from Clarity        
+
+
+
+  - name: SPECIMEN_CLARITY_ALL
+    description: view raw  data for SPECIMEN from Clarity        
+
+
+
+    
