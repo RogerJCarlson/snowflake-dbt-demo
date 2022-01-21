@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: T_CONDITION_CONCEPT
+    description: Subordinate view to V_CONDITION_OCCURRENCE_AMB and V_CONDITION_OCCURRENCE_HSP standard concept mappings from icd to snomed. 
+
+  - name: T_ICD_SOURCE
+    description: Subordinate view to V_CONDITION_OCCURRENCE_AMB and V_CONDITION_OCCURRENCE_HSP holding the icd codes. 
+
+  - name: V_CONDITION_OCCURRENCE_AMB
+    description: Subordinate view to CONDITION_OCCURRENCE holding the AMBULATORY data. 
+
+  - name: V_CONDITION_OCCURRENCE_HSP
+    description: Subordinate view to CONDITION_OCCURRENCE holding the HOSPITAL data. 
+
+  - name: CONDITION_OCCURRENCE
+    description: The CONDITION_OCCURRENCE table contains Events where Persons engage with the healthcare system for a duration of time. 
+    columns: 
+      - name: CONDITION_OCCURRENCE_ID
+        description: unique id
+        tests:
+          - unique
+          - not_null
+
+      - name: PERSON_ID
+        tests:
+          - not_null    
+          - relationships:
+              to: ref('PERSON')
+              field: PERSON_ID 
+
+      - name: CONDITION_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID   
+
+      - name: CONDITION_TYPE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID   
+
+      - name: PROVIDER_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('PROVIDER')
+              field: PROVIDER_ID
+
+      - name: VISIT_OCCURRENCE_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('VISIT_OCCURRENCE')
+              field: VISIT_OCCURRENCE_ID          
+              
+      - name: CONDITION_SOURCE_CONCEPT_ID
+        tests:
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID   
+              
+      - name: CONDITION_STATUS_CONCEPT_ID
+        description: Not Applicable - Value:0      
+        tests:
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID   
+             

@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: T_DIAGNOSIS
+    description: ephemeral returns all diagnosis codes - subordinate to CONDITION_OCCURRENCE_CLARITYAMB_ICD and CONDITION_OCCURRENCE_CLARITYHOSP_ICD           
+
+
+
+  - name: CONDITION_OCCURRENCE_CLARITYAMB_ICD
+    description: view raw  data for AMBULATORY CONDITION_OCCURRENCE from Clarity        
+
+
+
+  - name: CONDITION_OCCURRENCE_CLARITYHOSP_ICD
+    description: view raw  data for HOSPITAL CONDITION_OCCURRENCE from Clarity     
