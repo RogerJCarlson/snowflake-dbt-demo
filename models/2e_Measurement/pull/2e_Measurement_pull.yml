@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: MEASUREMENT_CLARITYAMB_FLOWSHEET
+    description: view raw  data for AMBULATORY MEASUREMENT FLOWSHEET from Clarity
+
+
+
+  - name: MEASUREMENT_CLARITYAMB_LOINC
+    description: view raw  data for AMBULATORY MEASUREMENT LOINC from Clarity        
+
+
+
+  - name: MEASUREMENT_CLARITYHOSP_FLOWSHEET
+    description: view raw  data for HOSPITAL MEASUREMENT FLOWSHEET from Clarity   
+    
+
+
+  - name: MEASUREMENT_CLARITYHOSP_LOINC
+    description: view raw  data for HOSPITAL MEASUREMENT LOINC from Clarity
