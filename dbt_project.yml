@@ -54,7 +54,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   AOU_OMOP:
-    2b_health_system:
+    1a_location:
       app:
         +materialized: view
       pull:
