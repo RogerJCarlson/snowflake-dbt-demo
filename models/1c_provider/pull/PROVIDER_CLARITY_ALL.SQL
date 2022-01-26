@@ -1,3 +1,5 @@
+{{ config(materialized = 'view') }}
+
 SELECT DISTINCT CLARITY_SER.PROV_ID 
 
 , CLARITY_SER.PROV_NAME 

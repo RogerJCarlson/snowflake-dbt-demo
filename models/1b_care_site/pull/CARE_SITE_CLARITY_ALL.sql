@@ -1,3 +1,5 @@
+{{ config(materialized = 'view') }}
+
 SELECT DISTINCT T_POS.POS_ID 
 	, T_POS.POS_NAME 
 	, T_POS.ADDRESS_LINE_1

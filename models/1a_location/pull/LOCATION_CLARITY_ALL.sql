@@ -1,3 +1,5 @@
+{{ config(materialized = 'view') }} 
+
 SELECT 
 	ADDRESS_1
 	,ADDRESS_2
