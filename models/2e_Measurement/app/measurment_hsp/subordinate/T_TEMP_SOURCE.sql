@@ -1,0 +1,13 @@
+--T_TEMP_SOURCE
+{{ config(materialized='ephemeral') }}
+    SELECT DISTINCT
+        --AOU_ID
+        PERSON_ID
+        ,PAT_ENC_CSN_ID
+        ,RECORDED_TIME
+        ,MEAS_VALUE AS MEAS_VALUE
+    
+    FROM {{ref('MEASUREMENT_CLARITYHOSP_FLOWSHEET')}} AS MEASUREMENT_CLARITYHOSP_FLOWSHEET
+    
+    --7-TEMP SOURCE
+    WHERE FLO_MEAS_ID IN ('7')
