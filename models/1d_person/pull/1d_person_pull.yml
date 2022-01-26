@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: MAX_RACE
+    description: ephemeral subordinate to PATIENT_RACE_MAX . 
+
+  - name: PATIENT_RACE_MAX
+    description: ephemeral subordinate to PERSON_CLARITY_ALL finds the latest 'race' value for a patient. 
+
+  - name: PERSON_CLARITY_ALL
+    description: view raw  data for PERSON from Clarity

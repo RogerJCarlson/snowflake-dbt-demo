@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: DEATH
+    description: The death domain contains the clinical event for how and when a Person dies. 
+    columns: 
+      - name: PERSON_ID
+        tests:
+          - unique
+          - not_null    
+          - relationships:
+              to: ref('PERSON')
+              field: PERSON_ID 
+
+      - name: CAUSE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+  
+      - name: CAUSE_SOURCE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+
+      - name: DEATH_TYPE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 

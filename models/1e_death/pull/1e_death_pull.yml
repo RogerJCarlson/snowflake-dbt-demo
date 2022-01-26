@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: DEATH_CLARITY_ALL
+    description: view raw  data for DEATH from Clarity

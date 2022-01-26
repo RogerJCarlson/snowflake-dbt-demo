@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: SPECIMEN_CLARITY_ALL
+    description: view raw  data for SPECIMEN from Clarity

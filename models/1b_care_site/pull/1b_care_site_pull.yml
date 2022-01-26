@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: ENC_PHYSICIAN_POINTOFSERVICE
+    description: ephemeral subordinate to CARE_SITE_CLARITY_ALL holding the ENC_PHYSICIAN_POINTOFSERVICE. 
+
+  - name: PCP_PHYSICIAN_POINTOFSERVICE
+    description: ephemeral subordinate to CARE_SITE_CLARITY_ALL holding the PCP_PHYSICIAN_POINTOFSERVICE. 
+
+  - name: T_POS
+    description: ephemeral subordinate to CARE_SITE_CLARITY_ALL unioning the ENC_PHYSICIAN_POINTOFSERVICE and PCP_PHYSICIAN_POINTOFSERVICE. 
+
+  - name: CARE_SITE_CLARITY_ALL
+    description: raw view data for CARE_SITE from Clarity    

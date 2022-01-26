@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: CARE_SITE
+    description: The CARE_SITE table contains a list of uniquely identified institutional (physical or organizational) units where healthcare delivery is practiced (offices, wards, hospitals, clinics, etc.).
+    columns: 
+      - name: CARE_SITE_ID
+        tests:
+          - unique
+          - not_null
+
+      - name: LOCATION_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('LOCATION')
+              field: LOCATION_ID  
+
+      - name: PLACE_OF_SERVICE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID

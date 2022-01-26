@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: CARE_SITE_LOCATIONS
+    description: ephemeral subordinate to LOCATION_CLARITY_ALL holding the CARE_SITE_LOCATIONS. 
+
+  - name: PERSON_LOCATIONS
+    description: ephemeral subordinate to LOCATION_CLARITY_ALL holding the PERSON_LOCATIONS. 
+
+  - name: LOCATION_CLARITY_ALL
+    description:  view raw data for LOCATION from Clarity

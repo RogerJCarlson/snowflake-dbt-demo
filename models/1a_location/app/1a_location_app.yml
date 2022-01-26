@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: LOCATION
+    description: The LOCATION table represents a generic way to capture physical location or address information of Persons and Care Sites.
+    columns: 
+      - name: LOCATION_ID
+        description: unique id
+        tests:
+          - unique
+          - not_null
+      - name: LOCATION_SOURCE_VALUE
+        description: Concatenation of all text values to JOIN to CARE_SITE table.          
+          

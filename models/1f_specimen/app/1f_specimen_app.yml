@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: SPECIMEN
+    columns: 
+      - name: SPECIMEN_ID
+        tests:
+          - unique
+          - not_null 
+
+      - name: PERSON_ID
+        tests:
+          - relationships:
+              to: ref('PERSON')
+              field: PERSON_ID
+
+      - name: ANATOMIC_SITE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+
+      - name: DISEASE_STATUS_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+            
+      - name: SPECIMEN_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+              
+      - name: SPECIMEN_TYPE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 
+              
+      - name: UNIT_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID 

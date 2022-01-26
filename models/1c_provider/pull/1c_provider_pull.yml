@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: PROVIDER_CLARITY_ALL
+    description: view raw  data for PROVIDER from Clarity 
