@@ -1,0 +1,18 @@
+--T_LOINC_SOURCE
+
+{{ config(materialized='ephemeral') }}
+
+SELECT CONCEPT_ID
+    ,CONCEPT_CODE
+
+FROM {{ source('CDM','CONCEPT')}} AS C
+
+WHERE (
+        C.INVALID_REASON IS NULL
+        OR C.INVALID_REASON = ''
+        )
+    AND UPPER(C.DOMAIN_ID) = 'MEASUREMENT'
+    AND UPPER(VOCABULARY_ID) = 'LOINC'
+    AND UPPER(CONCEPT_CLASS_ID) = 'LAB TEST'
+
+	
