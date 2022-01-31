@@ -9,6 +9,7 @@ sources:
       - name: ALLERGY
       - name: AP_CASE_TYPES
       - name: AP_SPECIMEN_DESC
+      - name: AN_HSB_LINK_INFO
       - name: BLOOD_ADMIN_INFO
       - name: CLARITY_ADT
       - name: CLARITY_COMPONENT

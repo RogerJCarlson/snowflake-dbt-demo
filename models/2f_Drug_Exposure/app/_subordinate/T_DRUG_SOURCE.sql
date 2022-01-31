@@ -1,0 +1,16 @@
+--T_DRUG_SOURCE
+{{ config(materialized='ephemeral') }}
+
+SELECT CONCEPT_ID
+    ,CONCEPT_CODE
+    ,CONCEPT_CLASS_ID
+    ,CONCEPT_NAME
+
+FROM {{ source('CDM','CONCEPT')}} AS C
+
+WHERE UPPER(C.VOCABULARY_ID) IN ('RXNORM')
+    AND (
+        C.INVALID_REASON IS NULL
+        OR C.INVALID_REASON = ''
+        )
+    AND UPPER(C.DOMAIN_ID) = 'DRUG'
