@@ -10,8 +10,95 @@ models:
   - name: T_TEMPERATURE
     description: Subordinate view to V_MEASUREMENT_FLOWSHEET_HSP_TEMPERATURE. 
 
+  - name: T_TEMP_SOURCE_AMB
+    description: Subordinate view to V_MEASUREMENT_FLOWSHEET_AMB_TEMPERATURE. 
+
+  - name: T_TEMPERATURE_MERGE_AMB
+    description: Subordinate view to V_MEASUREMENT_FLOWSHEET_AMB_TEMPERATURE. 
+
+  - name: T_TEMPERATURE_AMB
+    description: Subordinate view to V_MEASUREMENT_FLOWSHEET_AMB_TEMPERATURE. 
+
+  - name: T_TEMP_SOURCE_ANES
+    description: Subordinate view to V_MEASUREMENT_FLOWSHEET_ANES_TEMPERATURE. 
+
+  - name: T_TEMPERATURE_MERGE_ANES
+    description: Subordinate view to V_MEASUREMENT_FLOWSHEET_ANES_TEMPERATURE. 
+
+  - name: T_TEMPERATURE_ANES
+    description: Subordinate view to V_MEASUREMENT_FLOWSHEET_ANES_TEMPERATURE.     
+
+
+  - name: V_MEASUREMENT_FLOWSHEET_AMB_BMI
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_AMB_BPD
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_AMB_BPS
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_AMB_MISC
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_AMB_TEMPERATURE
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_AMB_VITALS
+    description: Subordinate view to MEASUREMENT. 
+
+
+  - name: V_MEASUREMENT_FLOWSHEET_ANES_BPD
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_ANES_BPM
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_ANES_BPS
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_ANES_MISC
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_ANES_TEMPERATURE
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_ANES_VITALS
+    description: Subordinate view to MEASUREMENT.
+
+
+
+  - name: V_MEASUREMENT_FLOWSHEET_HSP_BMI
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_HSP_BPD
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_HSP_BPS
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_HSP_MISC
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_HSP_TEMPERATURE
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_FLOWSHEET_HSP_VITALS
+    description: Subordinate view to MEASUREMENT.
+
+
+
+  - name: V_MEASUREMENT_LOINC_AMB
+    description: Subordinate view to MEASUREMENT. 
+
+  - name: V_MEASUREMENT_LOINC_HSP
+    description: Subordinate view to MEASUREMENT.
+
+
+
+
   - name: MEASUREMENT
-    description: The CONDITION_OCCURRENCE table contains Events where Persons engage with the healthcare system for a duration of time. 
+    description: The MEASUREMENT table contains records of Measurements, i.e. structured values (numerical or categorical) obtained through systematic and standardized examination or testing of a Person or Person’s sample. 
     columns: 
       - name: MEASUREMENT_ID
         description: unique id

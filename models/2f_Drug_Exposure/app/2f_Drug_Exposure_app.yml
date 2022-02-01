@@ -1,0 +1,95 @@
+version: 2
+
+models:
+  - name: T_DRUG_CONCEPT
+    description: Subordinate view to V_DRUG_EXPOSURE_RXNORM_AMB, V_DRUG_EXPOSURE_RXNORM_ANES, V_DRUG_EXPOSURE_RXNORM_HSP. 
+
+  - name: T_DRUG_SOURCE
+    description: Subordinate view to V_DRUG_EXPOSURE_RXNORM_AMB, V_DRUG_EXPOSURE_RXNORM_ANES, V_DRUG_EXPOSURE_RXNORM_HSP. 
+
+  - name: TOP_RXNORM_AMB
+    description: Subordinate view to V_DRUG_EXPOSURE_RXNORM_AMB. 
+
+  - name: TOP_RXNORM_ANES
+    description: Subordinate view to V_DRUG_EXPOSURE_RXNORM_ANES. 
+
+  - name: TOP_RXNORM_HSP
+    description: Subordinate view to V_DRUG_EXPOSURE_RXNORM_HSP. 
+
+  - name: V_DRUG_EXPOSURE_RXNORM_AMB
+    description: Subordinate view to DRUG_EXPOSURE. 
+
+  - name: V_DRUG_EXPOSURE_RXNORM_ANES
+    description: Subordinate view to DRUG_EXPOSURE. 
+
+  - name: V_DRUG_EXPOSURE_RXNORM_HSP
+    description: Subordinate view to DRUG_EXPOSURE. 
+
+  - name: DRUG_EXPOSURE
+    description: This table captures records about the exposure to a Drug ingested or otherwise introduced into the body.  
+    columns: 
+      - name: DRUG_EXPOSURE_ID
+        description: unique id
+        tests:
+          - unique
+          - not_null
+
+      - name: PERSON_ID
+        tests:
+          - not_null    
+          - relationships:
+              to: ref('PERSON')
+              field: PERSON_ID 
+
+      - name: DRUG_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID   
+
+      - name: DRUG_TYPE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID   
+
+      - name: ROUTE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID   
+
+      - name: PROVIDER_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('PROVIDER')
+              field: PROVIDER_ID
+
+      - name: VISIT_OCCURRENCE_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('VISIT_OCCURRENCE')
+              field: VISIT_OCCURRENCE_ID          
+ 
+      - name: VISIT_DETAIL_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+                           
+      - name: DRUG_SOURCE_CONCEPT_ID
+        tests:
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID   
+
+             
