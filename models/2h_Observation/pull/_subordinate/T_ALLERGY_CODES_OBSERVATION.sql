@@ -1,0 +1,10 @@
+  {{ config(materialized='ephemeral') }}
+
+	SELECT A.ALLERGEN_ID
+		, A.ALLERGEN_NAME
+		, CONCAT (
+			'ALLERGY TO '
+			, A.ALLERGEN_NAME
+			) AS CONCEPT_NAME
+	FROM {{ source('CLARITY','CL_ELG')}}  AS A
+	WHERE UPPER(ALLERGEN_NAME) NOT IN ('NO KNOWN ALLERGIES', 'NKA', 'NKDA', 'NONE')
