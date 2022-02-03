@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: V_OBSERVATION_ICD_AMB
+    description: Subordinate view to OBSERVATION holding the AMBULATORY OBSERVATIONS.
+    
+  - name: V_OBSERVATION_ICD_HSP
+    description: Subordinate view to OBSERVATION holding the HOSPITAL OBSERVATIONS.  
+
+  - name: V_OBSERVATION_ALLERGY_ALL
+    description: Subordinate view to OBSERVATION holding the ALLERGY OBSERVATIONS. 
+
+  - name: OBSERVATION
+    description: The OBSERVATION table captures clinical facts about a Person obtained in the context of examination, questioning or a procedure.
+    columns: 
+      - name: OBSERVATION_ID
+        description: unique id
+        tests:
+          - unique
+          - not_null
+
+      - name: PERSON_ID
+        tests:
+          - not_null    
+          - relationships:
+              to: ref('PERSON')
+              field: PERSON_ID 
+
+      - name: OBSERVATION_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID   
+
+      - name: OBSERVATION_TYPE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID
+
+      - name: VALUE_AS_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM', 'CONCEPT')
+              field: CONCEPT_ID
+
+      - name: QUALIFIER_CONCEPT_ID
+        description: Not Applicable - Value:0 
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM', 'CONCEPT')
+              field: CONCEPT_ID
+
+      - name: UNIT_CONCEPT_ID
+        description: Not Applicable - Value:0 
+        tests:
+          - accepted_values:
+              values:
+                - 0
+
+      - name: PROVIDER_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('PROVIDER')
+              field: PROVIDER_ID
+
+      - name: VISIT_DETAIL_ID
+        description: Not Applicable - Value:0 
+        tests:
+          - accepted_values:
+              values:
+                - 0
+
+      - name: OBSERVATION_SOURCE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM', 'CONCEPT')
+              field: CONCEPT_ID 
