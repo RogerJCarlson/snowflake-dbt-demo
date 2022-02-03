@@ -48,18 +48,18 @@ models:
             field: CONCEPT_ID
 
       - name: QUALIFIER_AS_CONCEPT_ID
+        description: Not Applicable - Value:0 
         tests:
-          - not_null
-          - relationships:
-            to: source('CDM', 'CONCEPT')
-            field: CONCEPT_ID  
+          - accepted_values:
+              values:
+                - 0
 
       - name: UNIT_CONCEPT_ID
+        description: Not Applicable - Value:0 
         tests:
-          - not_null
-          - relationships:
-              to: source('CDM','CONCEPT')
-              field: CONCEPT_ID 
+          - accepted_values:
+              values:
+                - 0
 
       - name: PROVIDER_ID
         tests:
