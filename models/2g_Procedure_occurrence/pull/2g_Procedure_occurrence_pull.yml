@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: PROCEDURE_OCCURRENCE_CLARITYAMB_CPT
+    description: view raw  data for AMBULATORY PROCEDURES from Clarity
+
+
+
+  - name: PROCEDURE_OCCURRENCE_CLARITYHSP_CPT
+    description: view raw  data for ANESTHESIA PROCEDURES from Clarity        
+
+
+
+  - name: PROCEDURE_OCCURRENCE_CLARITYSURG_CPT
+    description: view raw  data for HOSPITAL PROCEDURES from Clarity   

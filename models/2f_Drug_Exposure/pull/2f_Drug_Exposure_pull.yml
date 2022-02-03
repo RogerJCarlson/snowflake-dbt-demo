@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: DRUG_EXPOSURE_CLARITYAMB_RXNORM
+    description: view raw  data for AMBULATORY DRUG EXPOSURE from Clarity
+
+
+
+  - name: DRUG_EXPOSURE_CLARITYANES_RXNORM
+    description: view raw  data for ANESTHESIA DRUG EXPOSURE from Clarity        
+
+
+
+  - name: DRUG_EXPOSURE_CLARITYHOSP_RXNORM
+    description: view raw  data for HOSPITAL DRUG EXPOSURE from Clarity   
