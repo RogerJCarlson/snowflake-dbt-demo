@@ -44,15 +44,16 @@ models:
         tests:
           - not_null
           - relationships:
-            to: source('CDM', 'CONCEPT')
-            field: CONCEPT_ID
+              to: source('CDM', 'CONCEPT')
+              field: CONCEPT_ID
 
-      - name: QUALIFIER_AS_CONCEPT_ID
+      - name: QUALIFIER_CONCEPT_ID
         description: Not Applicable - Value:0 
         tests:
-          - accepted_values:
-              values:
-                - 0
+          - not_null
+          - relationships:
+              to: source('CDM', 'CONCEPT')
+              field: CONCEPT_ID
 
       - name: UNIT_CONCEPT_ID
         description: Not Applicable - Value:0 
@@ -70,6 +71,10 @@ models:
               to: ref('PROVIDER')
               field: PROVIDER_ID
 
+      - name: VISIT_OCCURRENCE_ID
+        tests:
+          - not_null
+
       - name: VISIT_DETAIL_ID
         description: Not Applicable - Value:0 
         tests:
@@ -81,5 +86,5 @@ models:
         tests:
           - not_null
           - relationships:
-            to: source('CDM', 'CONCEPT')
-            field: CONCEPT_ID 
+              to: source('CDM', 'CONCEPT')
+              field: CONCEPT_ID 

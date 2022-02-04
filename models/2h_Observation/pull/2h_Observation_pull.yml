@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: OBSERVATION_CLARITYALL_ALLERGY
+    description: view raw  data for ALLERGY OBSERVATION from Clarity          
+
+
+  - name: OBSERVATION_CLARITYAMB_ICD
+    description: view raw  data for AMBULATORY ICD OBSERVATION from Clarity        
+
+
+  - name: OBSERVATION_CLARITYHOSP_ICD
+    description: view raw  data for HOSPITAL ICD OBSERVATION from Clarity        
