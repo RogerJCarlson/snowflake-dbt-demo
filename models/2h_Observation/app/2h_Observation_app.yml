@@ -73,7 +73,12 @@ models:
 
       - name: VISIT_OCCURRENCE_ID
         tests:
-          - not_null
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('VISIT_OCCURRENCE')
+              field: VISIT_OCCURRENCE_ID
 
       - name: VISIT_DETAIL_ID
         description: Not Applicable - Value:0 
