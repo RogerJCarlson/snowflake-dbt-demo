@@ -272,7 +272,6 @@ sources:
     schema: CDM
     database: SH_OMOP_DB_PROD
     tables:
-      - name: AOU_DRIVER
       - name: ALLOFUSPARTICIPANTS        
       - name: CONCEPT        
       - name: SOURCE_TO_CONCEPT_MAP  
