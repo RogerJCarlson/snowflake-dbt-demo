@@ -272,7 +272,8 @@ sources:
     schema: CDM
     database: SH_OMOP_DB_PROD
     tables:
-      - name: AOU_DRIVER  
+      - name: AOU_DRIVER
+      - name: ALLOFUSPARTICIPANTS        
       - name: CONCEPT        
       - name: SOURCE_TO_CONCEPT_MAP  
       - name: CONCEPT_ANCESTOR
@@ -283,9 +284,5 @@ sources:
     schema: OMOP
     database: SH_OMOP_DB_PROD
     tables:
-      - name: LOCATION   
-      - name: CARE_SITE
-      - name: PROVIDER
-      - name: PERSON
-      - name: DEATH     
-      - name: SPECIMEN
+      - name: ALLOFUSPARTICIPANT_SEED   
+
