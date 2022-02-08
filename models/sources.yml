@@ -272,7 +272,6 @@ sources:
     schema: CDM
     database: SH_OMOP_DB_PROD
     tables:
-      - name: ALLOFUSPARTICIPANTS        
       - name: CONCEPT        
       - name: SOURCE_TO_CONCEPT_MAP  
       - name: CONCEPT_ANCESTOR
@@ -283,5 +282,4 @@ sources:
     schema: OMOP
     database: SH_OMOP_DB_PROD
     tables:
-      - name: ALLOFUSPARTICIPANT_SEED   
-
+      - name: ALLOFUSPARTICIPANTS  
