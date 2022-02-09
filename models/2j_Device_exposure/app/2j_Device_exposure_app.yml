@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: V_DEVICE_EXPOSURE_HSP_BLOOD
+    description: Subordinate view to DEVICE_EXPOSURE holding the HOSPITAL DEVICE EXPOSURES.
+    
+  - name: V_DEVICE_EXPOSURE_HSP_LDA
+    description: Subordinate view to DEVICE_EXPOSURE holding the HOSPITAL DEVICE EXPOSURES.  
+
+  - name: V_DEVICE_EXPOSURE_ANES_LDA
+    description: Subordinate view to DEVICE_EXPOSURE holding the ANESTHETIC DEVICE EXPOSURES. 
+
+  - name: DEVICE_EXPOSURE
+    description: The DEVICE_EXPOSURE table captures information about a person’s exposure to a foreign physical object or instrument which is used for diagnostic or therapeutic purposes through a mechanism beyond chemical action. 
+    columns: 
+      - name: DEVICE_EXPOSURE_ID
+        description: unique id
+        tests:
+          - unique
+          - not_null
+        
+      - name: PERSON_ID
+        tests:
+          - not_null    
+          - relationships:
+              to: ref('PERSON')
+              field: PERSON_ID
+
+      - name: DEVICE_CONCEPT_ID
+        tests:
+          - not_null
+          - relationships:
+              to: source('CDM','CONCEPT')
+              field: CONCEPT_ID
+
+      - name: DEVICE_TYPE_CONCEPT_ID
+        tests:
+          - not_null
+
+      - name: UNIQUE_DEVICE_ID
+
+      - name: PROVIDER_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('PROVIDER')
+              field: PROVIDER_ID
+
+      - name: VISIT_OCCURRENCE_ID
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('VISIT_OCCURRENCE')
+              field: VISIT_OCCURRENCE_ID    
+              
+      - name: VISIT_DETAIL_ID
+        description: Not Applicable - Value:0 
+        tests:
+          - accepted_values:
+              values:
+                - 0
+
+      - name: DEVICE_SOURCE_CONCEPT_ID
+        description: Not Applicable - Value:0 
+        tests:
+          - accepted_values:
+              values:
+                - 0
+
+
+        

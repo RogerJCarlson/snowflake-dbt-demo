@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: DEVICE_EXPOSURE_CLARITYHOSP_BLOOD
+    description: view raw  data for HOSPITAL BLOOD exposures from Clarity          
+
+
+  - name: DEVICE_EXPOSURE_CLARITYHOSP_LDA
+    description: view raw  data for HOSPITAL LDA DEVICE EXPOSUREs from Clarity        
+
+
+  - name: DEVICE_EXPOSURE_CLARITYANES_LDA
+    description: view raw  data for ANESTHETIC LDA DEVICE EXPOSUREs from Clarity        
