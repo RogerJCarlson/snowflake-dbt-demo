@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: NOTE_CLARITYAMB_ALL
+    description: view raw  data for AMBULATORY NOTEs from Clarity          
+
+
+  - name: NOTE_CLARITYHOSP_ALL
+    description: view raw  data for HOSPITAL NOTEs from Clarity        
+
+
+  - name: NOTE_CLARITYANES_ALL
+    description: view raw  data for ANESTHETIC NOTEs from Clarity  
