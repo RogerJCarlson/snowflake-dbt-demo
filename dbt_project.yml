@@ -59,6 +59,9 @@ models:
         +materialized: view
       pull:
         +materialized: view
-  
+
+# Loads the Participants List
+on-run-start: "{{ import_participants() }}"  
+
 on-run-end:
   - "PUT file://./logs/dbt.log @DBT_LOG_FILE"
