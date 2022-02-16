@@ -1,0 +1,81 @@
+version: 2
+
+models:
+  - name: V_NOTE_AMB
+    description: Subordinate view to NOTE holding the AMBULATORY NOTES.
+    
+  - name: V_NOTE_ANES
+    description: Subordinate view to NOTE holding the ANESTHETIC NOTES.  
+
+  - name: V_NOTE_HSP
+    description: Subordinate view to OBSERVATION holding the HOSPITAL NOTES. 
+
+  - name: NOTE
+    description: The NOTE table captures unstructured information that was recorded by a provider about a patient in free text (in ASCII, or preferably in UTF8 format) notes on a given date.
+    columns: 
+      - name: NOTE_ID
+        description: unique id
+ ##       tests:
+ ##         - unique
+ ##         - not_null
+
+      - name: PERSON_ID
+##        tests:
+##          - not_null    
+##          - relationships:
+##              to: ref('PERSON')
+##              field: PERSON_ID 
+
+      - name: NOTE_TYPE_CONCEPT_ID
+        description: Hard-coded as 32817
+##        tests:
+##          - not_null
+##          - accepted_values:
+##              values:
+##                - 32817
+
+      - name: NOTE_CLASS_CONCEPT_ID
+        description: Filled with TARGET_CONCEPT_ID if applicable, 0 otherwise
+##        tests:
+##          - not_null
+
+      - name: ENCODING_CONCEPT_ID
+        description: Hard-coded as 32678
+##        tests:
+##          - not_null
+##          - accepted_values:
+##              values:
+##                - 32678
+
+      - name: LANGUAGE_CONCEPT_ID
+        description: Hard-coded as 4180186
+##        tests:
+##          - not_null
+##          - accepted_values:
+##              values:
+##                - 4180186
+
+      - name: PROVIDER_ID
+##        tests:
+##          - not_null:
+##              config:
+##                severity: warn
+##          - relationships:
+##              to: ref('PROVIDER')
+##              field: PROVIDER_ID
+
+      - name: VISIT_OCCURRENCE_ID
+##        tests:
+##          - not_null:
+##              config:
+##                severity: warn
+##          - relationships:
+##              to: ref('VISIT_OCCURRENCE')
+##              field: VISIT_OCCURRENCE_ID    
+              
+      - name: VISIT_DETAIL_ID
+        description: Not Applicable - Value:0 
+##        tests:
+##          - accepted_values:
+##             values:
+##                - 0
