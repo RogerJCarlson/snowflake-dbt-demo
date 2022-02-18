@@ -1,9 +1,9 @@
 --NOTE 
 
-{{ config(materialized = 'view') }} 
+{{ config(materialized = 'table') }} 
 
 SELECT
-    DISTINCT SEQ_NOTE.NEXTVAL AS NOTE_ID
+     SEQ_NOTE.NEXTVAL AS NOTE_ID
     , A.*
 FROM
 (SELECT *

@@ -1,5 +1,7 @@
 
 --VISIT_OCCURRENCE_CLARITYAMB_ALL
+{{ config(materialized='table', 
+        cluster_by = ['PAT_ENC_CSN_ID']) }}
 
 SELECT DISTINCT SUBSTRING(AOU_DRIVER.AOU_ID, 2, LEN(AOU_DRIVER.AOU_ID)) AS PERSON_ID
     ,AOU_ID
