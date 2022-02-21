@@ -1,0 +1,19 @@
+USE DATABASE SH_OMOP_DB_PROD;
+USE SCHEMA CDM;
+USE ROLE SF_SH_OMOP_DEVELOPER;
+USE WAREHOUSE SH_OMOP_DATA_SCIENCE_WH;
+-- =============================================
+-- Author:		Roger Carlson
+-- Create date: 05-21-2021
+-- Description:	Modify CDM.pii_email table for export to AoU
+-- =============================================
+CREATE OR REPLACE VIEW CDM.V_AOU_PII_EMAIL
+AS
+SELECT DISTINCT CDM.PERSON.PERSON_ID AS "person_id"
+	,EMAIL AS "email"
+FROM CDM.PERSON
+INNER JOIN CDM.AOU_DRIVER
+	ON CDM.PERSON.PERSON_ID = SUBSTRING(CDM.AOU_DRIVER.AOU_ID, 2, LEN(CDM.AOU_DRIVER.AOU_ID))
+WHERE (EMAIL <>'' AND EMAIL IS NOT NULL)
+
+

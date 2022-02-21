@@ -1,6 +1,7 @@
 --VISIT_OCCURRENCE 
 
-{{ config(materialized = 'table') }} 
+{{ config(materialized='table', 
+        cluster_by = ['VISIT_OCCURRENCE_ID']) }}
 
 SELECT
     DISTINCT SEQ_VISIT_OCCURRENCE.NEXTVAL AS VISIT_OCCURRENCE_ID

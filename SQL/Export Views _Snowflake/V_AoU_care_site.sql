@@ -19,3 +19,4 @@ SELECT
     , PLACE_OF_SERVICE_SOURCE_VALUE AS "place_of_service_source_value"
 FROM
     CDM.CARE_SITE
+    
