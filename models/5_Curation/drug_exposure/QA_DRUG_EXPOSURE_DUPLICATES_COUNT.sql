@@ -1,4 +1,4 @@
---DRUG_EXPOSURE_DUPLICATES_COUNT
+--QA_DRUG_EXPOSURE_DUPLICATES_COUNT
 ---------------------------------------------------------------------
 
 {{ config(materialized = 'view') }}
