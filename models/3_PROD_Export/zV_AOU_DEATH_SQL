@@ -1,0 +1,4 @@
+--   V_AOU_DEATH
+
+{{ config(materialized = 'view') }}
+
