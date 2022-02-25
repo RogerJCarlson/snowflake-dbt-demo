@@ -5,78 +5,78 @@ sources:
     schema: EPIC_CLARITY_LZ
     database: SH_CLINICAL_DB_PROD
     tables:
-      - name: ACUITY_SCORE_SPECIFIC
+##      - name: ACUITY_SCORE_SPECIFIC
       - name: ALLERGY
-      - name: AP_CASE_TYPES
-      - name: AP_SPECIMEN_DESC
+##      - name: AP_CASE_TYPES
+##      - name: AP_SPECIMEN_DESC
       - name: AN_HSB_LINK_INFO
       - name: BLOOD_ADMIN_INFO
       - name: CLARITY_ADT
-      - name: CLARITY_COMPONENT
+##      - name: CLARITY_COMPONENT
       - name: CLARITY_DEP
       - name: CLARITY_EAP
       - name: CLARITY_EDG
       - name: CLARITY_EMP
-      - name: CLARITY_EZP
-      - name: CLARITY_FC
-      - name: CLARITY_IMMUNZATN
-      - name: CLARITY_LLB
+##      - name: CLARITY_EZP
+##      - name: CLARITY_FC
+##      - name: CLARITY_IMMUNZATN
+##      - name: CLARITY_LLB
       - name: CLARITY_LOC
       - name: CLARITY_MEDICATION
       - name: CLARITY_MOD
       - name: CLARITY_POS
       - name: CLARITY_PRC
-      - name: CLARITY_SA
+##      - name: CLARITY_SA
       - name: CLARITY_SER
       - name: CLARITY_SER_2
       - name: CL_ELG
-      - name: CL_ICD_PX
-      - name: CL_PRL_SS
-      - name: CL_RSN_FOR_VISIT
-      - name: CL_UB_REV_CODE
-      - name: CODE_INT_CODE_INFO_LN
-      - name: CODE_INT_CODE_INFO_QUAN
-      - name: CODE_INT_COMB_LN
-      - name: CONCEPT_MAPPED
-      - name: COVID_19_HSP_INFECTIONS
-      - name: DISCHARGE_DISPOSITION_MAP
-      - name: DM_ICU_STAY
-      - name: DST_SWITCH_DATES
+##      - name: CL_ICD_PX
+##      - name: CL_PRL_SS
+##      - name: CL_RSN_FOR_VISIT
+##      - name: CL_UB_REV_CODE
+##      - name: CODE_INT_CODE_INFO_LN
+##      - name: CODE_INT_CODE_INFO_QUAN
+##      - name: CODE_INT_COMB_LN
+##     - name: CONCEPT_MAPPED
+##      - name: COVID_19_HSP_INFECTIONS
+##      - name: DISCHARGE_DISPOSITION_MAP
+##      - name: DM_ICU_STAY
+##      - name: DST_SWITCH_DATES
       - name: D_PROV_PRIMARY_HIERARCHY
       - name: EDG_CURRENT_ICD10
       - name: EDG_CURRENT_ICD9
-      - name: EXTERNAL_CNCPT_MAP
-      - name: FACILITY_PROFILE
+##      - name: EXTERNAL_CNCPT_MAP
+##      - name: FACILITY_PROFILE
       - name: F_AN_RECORD_SUMMARY
-      - name: F_PAT_ICU_LOCATION
+##      - name: F_PAT_ICU_LOCATION
       - name: HNO_INFO
       - name: HNO_NOTE_TEXT
       - name: HSC_SPEC_INFO
       - name: HSP_ACCOUNT
-      - name: HSP_ACCT_CPT_CODES
-      - name: HSP_ACCT_DX_LIST
-      - name: HSP_ACCT_ECDDX_ALT
-      - name: HSP_ACCT_EVENTS
-      - name: HSP_ACCT_EXTINJ_CD
-      - name: HSP_ACCT_FINDX_ALT
-      - name: HSP_ACCT_ICDPX_ALT
-      - name: HSP_ACCT_PX_LIST
+##      - name: HSP_ACCT_CPT_CODES
+##      - name: HSP_ACCT_DX_LIST
+##      - name: HSP_ACCT_ECDDX_ALT
+##      - name: HSP_ACCT_EVENTS
+##      - name: HSP_ACCT_EXTINJ_CD
+##      - name: HSP_ACCT_FINDX_ALT
+##      - name: HSP_ACCT_ICDPX_ALT
+##      - name: HSP_ACCT_PX_LIST
       - name: HSP_ATND_PROV
-      - name: ICU_ACUITY_ENC
+##      - name: ICU_ACUITY_ENC
       - name: IDENTITY_ID
-      - name: IMMUNE
-      - name: IMMUNE_HISTORY
-      - name: INFECTIONS
+##      - name: IMMUNE
+##      - name: IMMUNE_HISTORY
+##      - name: INFECTIONS
       - name: IP_DATA_STORE
       - name: IP_FLO_GP_DATA
       - name: IP_FLWSHT_MEAS
       - name: IP_FLWSHT_REC
-      - name: IP_FREQUENCY
+##      - name: IP_FREQUENCY
       - name: IP_LDA_NOADDSINGLE
-      - name: LAB_CASE_INFO
-      - name: LAB_PROFILE
-      - name: LAB_SECTION
-      - name: LAB_SMT_NOADD
+##      - name: LAB_CASE_INFO
+##      - name: LAB_PROFILE
+##      - name: LAB_SECTION
+##      - name: LAB_SMT_NOADD
       - name: LINKED_CHARGEABLES
       - name: LINKED_PERFORMABLE
       - name: LNC_DB_MAIN
@@ -85,199 +85,199 @@ sources:
       - name: ORDER_DX_PROC
       - name: ORDER_INSTANTIATED
       - name: ORDER_MED
-      - name: ORDER_MEDINFO
-      - name: ORDER_MED_3
-      - name: ORDER_MED_4
+##      - name: ORDER_MEDINFO
+##      - name: ORDER_MED_3
+##      - name: ORDER_MED_4
       - name: ORDER_PROC
       - name: ORDER_PROC_2
       - name: ORDER_RESULTS
-      - name: ORDER_SIGNED_MED
-      - name: ORDER_SMARTSET
-      - name: ORD_BLOOD_ADMIN
-      - name: OR_CASE
-      - name: OR_IMP
-      - name: OR_IMP_IMPLANT
+##      - name: ORDER_SIGNED_MED
+##      - name: ORDER_SMARTSET
+##      - name: ORD_BLOOD_ADMIN
+##      - name: OR_CASE
+##      - name: OR_IMP
+##      - name: OR_IMP_IMPLANT
       - name: OR_LOG
       - name: OR_LOG_ALL_PROC
       - name: OR_LOG_ALL_SURG
       - name: OR_LOG_VIRTUAL
-      - name: OR_SER_SURG_SRVC
-      - name: OR_SPLY
-      - name: OR_SPLY_EXT_IDS
+##      - name: OR_SER_SURG_SRVC
+##      - name: OR_SPLY
+##      - name: OR_SPLY_EXT_IDS
       - name: PATIENT
-      - name: PATIENT_3
+##      - name: PATIENT_3
       - name: PATIENT_RACE
-      - name: PAT_ADDR_CHNG_HX
+##      - name: PAT_ADDR_CHNG_HX
       - name: PAT_ALLERGIES
       - name: PAT_ENC
       - name: PAT_ENC_2
       - name: PAT_ENC_DX
       - name: PAT_ENC_HSP
-      - name: PAT_ENC_RSN_VISIT
-      - name: PAT_IMMUNIZATIONS
+##      - name: PAT_ENC_RSN_VISIT
+##      - name: PAT_IMMUNIZATIONS
       - name: PAT_OR_ADM_LINK
-      - name: PROBLEM_LIST
-      - name: QM_GEN_INFO
-      - name: RDI_PAT_CSN
-      - name: RES_DB_MAIN
-      - name: RES_VLD_AUDIT
-      - name: RQG_DB_MAIN
-      - name: RTYPE_DB_MAIN
+##      - name: PROBLEM_LIST
+##      - name: QM_GEN_INFO
+##      - name: RDI_PAT_CSN
+##      - name: RES_DB_MAIN
+##      - name: RES_VLD_AUDIT
+##      - name: RQG_DB_MAIN
+##      - name: RTYPE_DB_MAIN
       - name: RXNORM_CODES
-      - name: RX_MED_NDC_CODE
-      - name: RX_MED_TWO
-      - name: SNOMED_CONCEPT
-      - name: SNOMED_HIERARCHY
-      - name: SOCIAL_HX
+##      - name: RX_MED_NDC_CODE
+##      - name: RX_MED_TWO
+##      - name: SNOMED_CONCEPT
+##      - name: SNOMED_HIERARCHY
+##      - name: SOCIAL_HX
       - name: SPEC_DB_MAIN
-      - name: SPEC_TEST_REL
-      - name: TEST_EXPIRATION
-      - name: TEST_MSTR_DB_MAIN
-      - name: TRN_ACUITY_SCORE_SPECIFIC
-      - name: TRN_CLARITY_ADT
-      - name: TRN_CL_UB_REV_CODE
-      - name: TRN_CODE_INT_COMB_LN
-      - name: TRN_DM_ICU_STAY
-      - name: TRN_HNO_INFO
-      - name: TRN_HNO_NOTE_TEXT
-      - name: TRN_HSP_ACCOUNT
-      - name: TRN_HSP_ACCT_CPT_CODES
-      - name: TRN_HSP_ACCT_DX_LIST
-      - name: TRN_HSP_ACCT_EVENTS
-      - name: TRN_HSP_ACCT_EXTINJ_CD
-      - name: TRN_HSP_ACCT_PX_LIST
-      - name: TRN_HSP_ATND_PROV
-      - name: TRN_IDENTITY_ID
-      - name: TRN_IMMUNE
-      - name: TRN_IMMUNE_HISTORY
-      - name: TRN_IP_DATA_STORE
-      - name: TRN_IP_FLWSHT_MEAS
-      - name: TRN_IP_FLWSHT_REC
-      - name: TRN_IP_LDA_NOADDSINGLE
-      - name: TRN_LAB_RESULTS
-      - name: TRN_MAR_ADMIN_INFO
-      - name: TRN_NOTE_ENC_INFO
-      - name: TRN_ORDER_DX_PROC
-      - name: TRN_ORDER_INSTANTIATED
-      - name: TRN_ORDER_MED
-      - name: TRN_ORDER_MEDINFO
-      - name: TRN_ORDER_MED_3
-      - name: TRN_ORDER_MED_4
-      - name: TRN_ORDER_PROC
-      - name: TRN_ORDER_PROC_2
-      - name: TRN_ORDER_RESULTS
-      - name: TRN_ORDER_SIGNED_MED
-      - name: TRN_ORDER_SMARTSET
-      - name: TRN_OR_CASE
-      - name: TRN_OR_SPLY
-      - name: TRN_PATIENT
-      - name: TRN_PATIENT_3
-      - name: TRN_PATIENT_RACE
-      - name: TRN_PAT_ADDR_CHNG_HX
-      - name: TRN_PAT_ENC
-      - name: TRN_PAT_ENC_2
-      - name: TRN_PAT_ENC_DX
-      - name: TRN_PAT_ENC_HSP
-      - name: TRN_PAT_ENC_RSN_VISIT
-      - name: TRN_PAT_IMMUNIZATIONS
-      - name: TRN_PROBLEM_LIST
-      - name: TRN_QM_GEN_INFO
-      - name: TRN_RDI_PAT_CSN
-      - name: TRN_RES_DB_MAIN
-      - name: TRN_RES_VLD_AUDIT
-      - name: TRN_SOCIAL_HX
-      - name: TRN_SPEC_DB_MAIN
-      - name: TRN_SPEC_TEST_REL
-      - name: VALID_PATIENT
+##      - name: SPEC_TEST_REL
+##      - name: TEST_EXPIRATION
+##      - name: TEST_MSTR_DB_MAIN
+##      - name: TRN_ACUITY_SCORE_SPECIFIC
+##      - name: TRN_CLARITY_ADT
+##      - name: TRN_CL_UB_REV_CODE
+##      - name: TRN_CODE_INT_COMB_LN
+##      - name: TRN_DM_ICU_STAY
+##      - name: TRN_HNO_INFO
+##      - name: TRN_HNO_NOTE_TEXT
+##      - name: TRN_HSP_ACCOUNT
+##      - name: TRN_HSP_ACCT_CPT_CODES
+##      - name: TRN_HSP_ACCT_DX_LIST
+##      - name: TRN_HSP_ACCT_EVENTS
+##      - name: TRN_HSP_ACCT_EXTINJ_CD
+##      - name: TRN_HSP_ACCT_PX_LIST
+##      - name: TRN_HSP_ATND_PROV
+##      - name: TRN_IDENTITY_ID
+##      - name: TRN_IMMUNE
+##      - name: TRN_IMMUNE_HISTORY
+##      - name: TRN_IP_DATA_STORE
+##      - name: TRN_IP_FLWSHT_MEAS
+##      - name: TRN_IP_FLWSHT_REC
+##      - name: TRN_IP_LDA_NOADDSINGLE
+##      - name: TRN_LAB_RESULTS
+##      - name: TRN_MAR_ADMIN_INFO
+##      - name: TRN_NOTE_ENC_INFO
+##      - name: TRN_ORDER_DX_PROC
+##      - name: TRN_ORDER_INSTANTIATED
+##      - name: TRN_ORDER_MED
+##      - name: TRN_ORDER_MEDINFO
+##      - name: TRN_ORDER_MED_3
+##      - name: TRN_ORDER_MED_4
+##      - name: TRN_ORDER_PROC
+##      - name: TRN_ORDER_PROC_2
+##      - name: TRN_ORDER_RESULTS
+##      - name: TRN_ORDER_SIGNED_MED
+##      - name: TRN_ORDER_SMARTSET
+##      - name: TRN_OR_CASE
+##      - name: TRN_OR_SPLY
+##      - name: TRN_PATIENT
+##      - name: TRN_PATIENT_3
+##      - name: TRN_PATIENT_RACE
+##      - name: TRN_PAT_ADDR_CHNG_HX
+##      - name: TRN_PAT_ENC
+##      - name: TRN_PAT_ENC_2
+##      - name: TRN_PAT_ENC_DX
+##      - name: TRN_PAT_ENC_HSP
+##      - name: TRN_PAT_ENC_RSN_VISIT
+##      - name: TRN_PAT_IMMUNIZATIONS
+##      - name: TRN_PROBLEM_LIST
+##      - name: TRN_QM_GEN_INFO
+##      - name: TRN_RDI_PAT_CSN
+##      - name: TRN_RES_DB_MAIN
+##      - name: TRN_RES_VLD_AUDIT
+##      - name: TRN_SOCIAL_HX
+##      - name: TRN_SPEC_DB_MAIN
+##      - name: TRN_SPEC_TEST_REL
+##      - name: VALID_PATIENT
       - name: ZC_ADMIN_ROUTE
       - name: ZC_ADM_SOURCE
-      - name: ZC_ANESTH_TYPE_HA
+##      - name: ZC_ANESTH_TYPE_HA
       - name: ZC_APPT_STATUS
       - name: ZC_CALCULATED_ENC_STAT
-      - name: ZC_CLASS_OF_PROBLE
-      - name: ZC_CODE_INT_RSN
+##      - name: ZC_CLASS_OF_PROBLE
+##      - name: ZC_CODE_INT_RSN
       - name: ZC_COUNTY
-      - name: ZC_DISCH_DEST
+##      - name: ZC_DISCH_DEST
       - name: ZC_DISCH_DISP
       - name: ZC_DISP_ENC_TYPE
-      - name: ZC_DX_CC_HA
-      - name: ZC_DX_POA
-      - name: ZC_EDG_CODE_SET
+##      - name: ZC_DX_CC_HA
+##      - name: ZC_DX_POA
+##      - name: ZC_EDG_CODE_SET
       - name: ZC_ED_DISPOSITION
-      - name: ZC_EMPY_STAT
+##      - name: ZC_EMPY_STAT
       - name: ZC_ETHNIC_GROUP
-      - name: ZC_EVENT_TYPE
-      - name: ZC_HCD_CODE_SET
-      - name: ZC_HOSP_ADMSN_TYPE
-      - name: ZC_IMMNZTN_STATUS
-      - name: ZC_IMM_GROUP
-      - name: ZC_IMM_TYPE
-      - name: ZC_INFECTION
-      - name: ZC_INF_STATUS
+##      - name: ZC_EVENT_TYPE
+##      - name: ZC_HCD_CODE_SET
+##      - name: ZC_HOSP_ADMSN_TYPE
+##      - name: ZC_IMMNZTN_STATUS
+##      - name: ZC_IMM_GROUP
+##      - name: ZC_IMM_TYPE
+##      - name: ZC_INFECTION
+##      - name: ZC_INF_STATUS
       - name: ZC_LAB_STATUS
-      - name: ZC_LANGUAGE
-      - name: ZC_LVL_OF_CARE
-      - name: ZC_MARITAL_STATUS
+##      - name: ZC_LANGUAGE
+##      - name: ZC_LVL_OF_CARE
+##      - name: ZC_MARITAL_STATUS
       - name: ZC_MAR_RSLT
       - name: ZC_MAR_RSN
       - name: ZC_MED_UNIT
-      - name: ZC_MFG
-      - name: ZC_NEAREST_MED_TIM
-      - name: ZC_NOTE_TYPE
+##      - name: ZC_MFG
+##      - name: ZC_NEAREST_MED_TIM
+##      - name: ZC_NOTE_TYPE
       - name: ZC_NOTE_TYPE_IP
       - name: ZC_ORDER_CLASS
-      - name: ZC_ORDER_PRIORITY
-      - name: ZC_ORDER_SOURCE
+##      - name: ZC_ORDER_PRIORITY
+##      - name: ZC_ORDER_SOURCE
       - name: ZC_ORDER_STATUS
       - name: ZC_ORDER_TYPE
-      - name: ZC_OR_IMP_STATUS
-      - name: ZC_OR_MANUFACTURER
-      - name: ZC_OR_SERVICE
+##      - name: ZC_OR_IMP_STATUS
+##      - name: ZC_OR_MANUFACTURER
+##      - name: ZC_OR_SERVICE
       - name: ZC_OR_STATUS
       - name: ZC_PATIENT_RACE
-      - name: ZC_PATIENT_STATUS
+##      - name: ZC_PATIENT_STATUS
       - name: ZC_PAT_CLASS
       - name: ZC_PAT_SERVICE
       - name: ZC_PAT_STATUS
-      - name: ZC_PHARM_CLASS
-      - name: ZC_PHARM_SUBCLASS
-      - name: ZC_PROBLEM_STATUS
-      - name: ZC_REASON_FOR_CANC
+##      - name: ZC_PHARM_CLASS
+##      - name: ZC_PHARM_SUBCLASS
+##      - name: ZC_PROBLEM_STATUS
+##      - name: ZC_REASON_FOR_CANC
       - name: ZC_RESULT_FLAG
       - name: ZC_RESULT_STATUS
-      - name: ZC_RES_VAL_STATUS
-      - name: ZC_ROUTE
-      - name: ZC_ROUTING_DEPT_TY
+##      - name: ZC_RES_VAL_STATUS
+##      - name: ZC_ROUTE
+##      - name: ZC_ROUTING_DEPT_TY
       - name: ZC_RSN_FOR_DISCON
       - name: ZC_RXNORM_TERM_TYPE
       - name: ZC_SEX
-      - name: ZC_SITE
-      - name: ZC_SMOKING_STATUS
-      - name: ZC_SMOKING_TOB_USE
-      - name: ZC_SOI_ROM
+##      - name: ZC_SITE
+##      - name: ZC_SMOKING_STATUS
+##      - name: ZC_SMOKING_TOB_USE
+##      - name: ZC_SOI_ROM
       - name: ZC_SPECIALTY
-      - name: ZC_SPECIMEN_SOURCE
+##      - name: ZC_SPECIMEN_SOURCE
       - name: ZC_SPECIMEN_TYPE
       - name: ZC_SPECIMEN_UNIT
       - name: ZC_SPEC_SOURCE
-      - name: ZC_SPEC_TEST_PRI
+##      - name: ZC_SPEC_TEST_PRI
       - name: ZC_STATE
-      - name: ZC_STAT_ABNORMS
-      - name: ZC_THERA_CLASS
-      - name: ZC_TOBACCO_USER
-      - name: ZC_TYPE_CASE
+##      - name: ZC_STAT_ABNORMS
+##      - name: ZC_THERA_CLASS
+##      - name: ZC_TOBACCO_USER
+##      - name: ZC_TYPE_CASE
       - name: ZC_VAL_TYPE
-      - name: ZIP_CODE_INFO
+##      - name: ZIP_CODE_INFO
   - name: CDM
     schema: CDM
     database: SH_OMOP_DB_PROD
     tables:
       - name: CONCEPT        
       - name: SOURCE_TO_CONCEPT_MAP  
-      - name: CONCEPT_ANCESTOR
+##      - name: CONCEPT_ANCESTOR
       - name: CONCEPT_RELATIONSHIP
-      - name: CONCEPT_CLASS
-      - name: CONCEPT_SYNONYM
+##      - name: CONCEPT_CLASS
+##      - name: CONCEPT_SYNONYM
   - name: OMOP
     schema: OMOP
     database: SH_OMOP_DB_PROD
