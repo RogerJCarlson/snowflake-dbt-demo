@@ -10,18 +10,18 @@
 
   {%- set query -%}
   -- import participant list
-    REMOVE @AOU_EXPORT/;
+    REMOVE @CDM.AOU_EXPORT/;
     --LIST @AOU_EXPORT/;
     
     --CARE_SITE (5.3)
     COPY INTO '@CDM.AOU_EXPORT/dbt/care_site.csv.gz'  FROM 
-    (SELECT * FROM  SH_OMOP_DB_PROD.CDM.V_AOU_CARE_SITE 
+    (SELECT * FROM  CDM.V_AOU_CARE_SITE 
         ) FILE_FORMAT = (format_name='CDM.AOU_EXPORT_FORMAT'  FILE_EXTENSION = 'csv') HEADER = TRUE MAX_FILE_SIZE = 5000000000 SINGLE = TRUE OVERWRITE = TRUE;
     
     
     --CONDITION_OCCURRENCE (5.3)
     COPY INTO '@CDM.AOU_EXPORT/dbt/condition_occurrence.csv.gz'  FROM 
-    ( SELECT * FROM SH_OMOP_DB_PROD.CDM.V_AOU_CONDITION_OCCURRENCE
+    ( SELECT * FROM CDM.V_AOU_CONDITION_OCCURRENCE
         ) FILE_FORMAT = (format_name='CDM.AOU_EXPORT_FORMAT'  FILE_EXTENSION = 'csv'  ) HEADER = TRUE MAX_FILE_SIZE = 5000000000 SINGLE = TRUE OVERWRITE = TRUE;
     
     --DEATH (5.3)
@@ -112,53 +112,65 @@
     
     --PARTICIPANT_MATCH (PII_VALIDATION) (5.3)
     
-    COPY INTO '@AOU_EXPORT/participant_match.csv.gz'  FROM 
-    ( SELECT * FROM SH_OMOP_DB_PROD.CDM.V_AOU_PARTICIPANT_MATCH
+    COPY INTO '@CDM.AOU_EXPORT/participant_match.csv.gz'  FROM 
+    ( SELECT * FROM CDM.V_AOU_PARTICIPANT_MATCH
      )
      FILE_FORMAT = (format_name='CDM.AOU_EXPORT_FORMAT'  FILE_EXTENSION = 'csv'  ) HEADER = TRUE MAX_FILE_SIZE = 5000000000 SINGLE = TRUE OVERWRITE = TRUE ;
     
     --PII_NAME (5.3)
     
-    COPY INTO '@AOU_EXPORT/pii_name.csv.gz'  FROM 
-    ( SELECT * FROM SH_OMOP_DB_PROD.CDM.V_AOU_PII_NAME 
+    COPY INTO '@CDM.AOU_EXPORT/pii_name.csv.gz'  FROM 
+    ( SELECT * FROM CDM.V_AOU_PII_NAME 
      )
      FILE_FORMAT = (format_name='CDM.AOU_EXPORT_FORMAT'  FILE_EXTENSION = 'csv'  ) HEADER = TRUE MAX_FILE_SIZE = 5000000000 SINGLE = TRUE OVERWRITE = TRUE ;
             
     --PII_PHONE (5.3)
     
-    COPY INTO '@AOU_EXPORT/pii_phone_number.csv.gz'  FROM 
-    ( SELECT * FROM SH_OMOP_DB_PROD.CDM.V_AOU_PII_PHONE_NUMBER
+    COPY INTO '@CDM.AOU_EXPORT/pii_phone_number.csv.gz'  FROM 
+    ( SELECT * FROM CDM.V_AOU_PII_PHONE_NUMBER
     )
     FILE_FORMAT = (format_name='CDM.AOU_EXPORT_FORMAT'  FILE_EXTENSION = 'csv'  ) HEADER = TRUE MAX_FILE_SIZE = 5000000000 SINGLE = TRUE OVERWRITE = TRUE ;
             
     --PII_ADDRESS (5.3)
     
-    COPY INTO '@AOU_EXPORT/pii_address.csv.gz'  FROM 
+    COPY INTO '@CDM.AOU_EXPORT/pii_address.csv.gz'  FROM 
     ( SELECT * FROM CDM.V_AOU_PII_ADDRESS
     )
     FILE_FORMAT = (format_name='CDM.AOU_EXPORT_FORMAT'  FILE_EXTENSION = 'csv'  ) HEADER = TRUE MAX_FILE_SIZE = 5000000000 SINGLE = TRUE OVERWRITE = TRUE ;
             
     --PII_EMAIL (5.3)
     
-    COPY INTO '@AOU_EXPORT/pii_email.csv.gz'  FROM 
-    ( SELECT * FROM SH_OMOP_DB_PROD.CDM.V_AOU_PII_EMAIL 
+    COPY INTO '@CDM.AOU_EXPORT/pii_email.csv.gz'  FROM 
+    ( SELECT * FROM CDM.V_AOU_PII_EMAIL 
      )
      FILE_FORMAT = (format_name='CDM.AOU_EXPORT_FORMAT'  FILE_EXTENSION = 'csv'  ) HEADER = TRUE MAX_FILE_SIZE = 5000000000 SINGLE = TRUE OVERWRITE = TRUE ;
             
     --PII_MRN (5.3)
     
-    COPY INTO '@AOU_EXPORT/pii_mrn.csv.gz'  FROM 
+    COPY INTO '@CDM.AOU_EXPORT/pii_mrn.csv.gz'  FROM 
     ( SELECT * FROM CDM.V_AOU_PII_MRN 
      )
      FILE_FORMAT = (format_name='CDM.AOU_EXPORT_FORMAT'  FILE_EXTENSION = 'csv'  ) HEADER = TRUE MAX_FILE_SIZE = 5000000000 SINGLE = TRUE OVERWRITE = TRUE ;
             
     --fact_relationship (5.3)
             
-    COPY INTO '@AOU_EXPORT/fact_relationship.csv.gz'  FROM 
+    COPY INTO '@CDM.AOU_EXPORT/fact_relationship.csv.gz'  FROM 
     ( SELECT * FROM CDM.V_AoU_fact_relationship 
     )
     FILE_FORMAT = (format_name='CDM.AOU_EXPORT_FORMAT'  FILE_EXTENSION = 'csv'  ) HEADER = TRUE MAX_FILE_SIZE = 5000000000 SINGLE = TRUE OVERWRITE = TRUE ;
  
+  {%- endset -%}
+  {%- do run_query(query) -%}
+
+
+  {%- set query -%}
+  -- export files
+  -- does not work
+  --15:44:34  Encountered an error while running operation: Database Error
+  --000002 (0A000): Unsupported feature 'unsupported_requested_format:snowflake'.
+  
+  --get  @CDM.AOU_EXPORT file://C:\SVN\SSIS\OMOP\OMOP_SNOW\export\AOU_EXPORT\dbt;
+
   {%- endset -%}
   {%- do run_query(query) -%}
 
