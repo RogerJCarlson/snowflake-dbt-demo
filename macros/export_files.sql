@@ -164,12 +164,8 @@
 
 
   {%- set query -%}
-  -- export files
-  -- does not work
-  --15:44:34  Encountered an error while running operation: Database Error
-  --000002 (0A000): Unsupported feature 'unsupported_requested_format:snowflake'.
-  
-  --get  @CDM.AOU_EXPORT file://C:\SVN\SSIS\OMOP\OMOP_SNOW\export\AOU_EXPORT\dbt;
+ 
+  get  @CDM.AOU_EXPORT file://C:\SVN\SSIS\OMOP\OMOP_SNOW\export\AOU_EXPORT\dbt;
 
   {%- endset -%}
   {%- do run_query(query) -%}
