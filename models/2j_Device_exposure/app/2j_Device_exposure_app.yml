@@ -47,7 +47,9 @@ models:
           - relationships:
               to: ref('PROVIDER')
               field: PROVIDER_ID
-
+              config:
+                severity: warn
+                
       - name: VISIT_OCCURRENCE_ID
         tests:
           - not_null:

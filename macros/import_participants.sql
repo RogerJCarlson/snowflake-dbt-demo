@@ -11,6 +11,10 @@
   {%- set query -%}
   -- import participant list
     REMOVE @CDM.AOU_PARTICIPANTS;
+  {%- endset -%}
+  {%- do run_query(query) -%}
+
+  {%- set query -%}
 
     PUT 'FILE://X:/ALL OF US/OMOP_WORKING/EXPORT/ALLOFUSPARTICIPANT.CSV' @CDM.AOU_PARTICIPANTS;
  
