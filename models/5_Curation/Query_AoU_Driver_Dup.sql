@@ -1,10 +1,11 @@
 --Query_AoU_Driver_Dup
+{{ config(materialized = 'view', schema='OMOP_QA') }}
 
-SELECT QA_ERR.Run_date
-    , QA_ERR.Standard_Data_Table
+SELECT QA_ERR_DBT.Run_date
+    , QA_ERR_DBT.Standard_Data_Table
     , AOU_DRIVER.CPI
     , AOU_DRIVER.EPIC_PAT_ID
-    , 'P' || QA_ERR.CDT_ID AS AOU_ID
+    , 'P' || QA_ERR_DBT.CDT_ID AS AOU_ID
     , AOU_DRIVER.FIRST_NAME
     , AOU_DRIVER.LAST_NAME
     , AOU_DRIVER.DATE_OF_BIRTH
@@ -18,7 +19,7 @@ SELECT QA_ERR.Run_date
 
 FROM {{ref('AOU_DRIVER')}} AS AOU_DRIVER 
 
-INNER JOIN QA_ERR
-    ON AOU_DRIVER.AOU_ID = 'P' || QA_ERR.CDT_ID
+INNER JOIN {{ref('QA_ERR_DBT')}} AS QA_ERR_DBT
+    ON AOU_DRIVER.AOU_ID = 'P' || QA_ERR_DBT.CDT_ID
 
-WHERE QA_ERR.Standard_Data_Table = 'AOU_DRIVER'
+WHERE QA_ERR_DBT.Standard_Data_Table = 'AOU_DRIVER'

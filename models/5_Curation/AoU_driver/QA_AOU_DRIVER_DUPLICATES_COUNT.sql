@@ -1,7 +1,7 @@
 --QA_AOU_DRIVER_DUPLICATES_COUNT 
 ---------------------------------------------------------------------
 
-{{ config(materialized = 'view') }}
+{{ config(materialized = 'view', schema='OMOP_QA') }}
 
 WITH TMP_DUPES AS (
                 

@@ -1,4 +1,7 @@
 --QA_AOU_DRIVER_DUPLICATES_DETAIL 
+---------------------------------------------------------------------
+
+{{ config(materialized = 'view', schema='OMOP_QA') }}
 
 SELECT CAST(GETDATE() AS DATE) AS RUN_DATE
     , 'AOU_DRIVER' AS STANDARD_DATA_TABLE
@@ -15,7 +18,7 @@ WHERE (
             (AOU_DRIVER.EPIC_PAT_ID) IN (
                 SELECT EPIC_PAT_ID
                 
-                FROM AOU_DRIVER AS Tmp
+                FROM {{ref('AOU_DRIVER')}} AS Tmp
                 
                 GROUP BY EPIC_PAT_ID
                 
