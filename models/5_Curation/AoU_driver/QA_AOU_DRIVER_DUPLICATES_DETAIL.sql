@@ -1,8 +1,6 @@
 --QA_AOU_DRIVER_DUPLICATES_DETAIL 
 ---------------------------------------------------------------------
 
-{{ config(materialized = 'view', schema='OMOP_QA') }}
-
 SELECT CAST(GETDATE() AS DATE) AS RUN_DATE
     , 'AOU_DRIVER' AS STANDARD_DATA_TABLE
     , 'DUPLICATE ' AS QA_METRIC 
