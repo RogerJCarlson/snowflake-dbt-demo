@@ -47,5 +47,13 @@
     FROM {{ref('PROVIDER')}} AS PROVIDER
     INNER JOIN providers_referenced
         ON providers_referenced.provider_id = provider.provider_id
+    LEFT JOIN (
+        SELECT CDT_ID
+        FROM {{ref('QA_ERR_DBT')}}
+        WHERE (STANDARD_DATA_TABLE = 'PROVIDER')
+            AND (ERROR_TYPE IN ('FATAL', 'INVALID DATA'))
+        ) AS EXCLUSION_RECORDS
+        ON PROVIDER.PROVIDER_ID = EXCLUSION_RECORDS.CDT_ID
+WHERE (EXCLUSION_RECORDS.CDT_ID IS NULL)
 
 

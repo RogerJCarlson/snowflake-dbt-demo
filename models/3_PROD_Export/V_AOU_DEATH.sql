@@ -9,5 +9,6 @@ SELECT  PERSON_ID AS "person_id"
     , CAUSE_CONCEPT_ID AS "cause_concept_id"
     , CAUSE_SOURCE_VALUE  AS "cause_source_value"
     , CAUSE_SOURCE_CONCEPT_ID AS "cause_source_concept_id"
-FROM  {{ref('DEATH')}} AS DEATH 
+FROM  {{ref('DEATH')}} AS DEATH
+
 

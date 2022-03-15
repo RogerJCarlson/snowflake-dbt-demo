@@ -21,4 +21,12 @@ SELECT observation_id AS "observation_id"
         ,unit_source_value AS "unit_source_value"
         ,qualifier_source_value AS "qualifier_source_value"
     FROM 
-        {{ref('OBSERVATION')}} AS observation
+        {{ref('OBSERVATION')}} AS OBSERVATION
+LEFT JOIN (
+    SELECT CDT_ID
+    FROM {{ref('QA_ERR_DBT')}} AS QA_ERR_DBT
+        WHERE (STANDARD_DATA_TABLE = 'OBSERVATION')
+            AND (ERROR_TYPE IN ('FATAL', 'INVALID DATA'))
+        ) AS EXCLUSION_RECORDS
+        ON OBSERVATION.OBSERVATION_ID = EXCLUSION_RECORDS.CDT_ID
+WHERE (EXCLUSION_RECORDS.CDT_ID IS NULL) 

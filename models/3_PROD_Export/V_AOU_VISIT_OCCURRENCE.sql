@@ -21,3 +21,11 @@ SELECT visit_occurrence_id AS "visit_occurrence_id"
     ,preceding_visit_occurrence_id AS "preceding_visit_occurrence_id"
 
 FROM {{ref('VISIT_OCCURRENCE')}} AS VISIT_OCCURRENCE
+LEFT JOIN (
+    SELECT CDT_ID
+    FROM {{ref('QA_ERR_DBT')}} AS QA_ERR_DBT
+        WHERE (STANDARD_DATA_TABLE = 'VISIT_OCCURRENCE')
+            AND (ERROR_TYPE IN ('FATAL', 'INVALID DATA'))
+        ) AS EXCLUSION_RECORDS
+        ON VISIT_OCCURRENCE.VISIT_OCCURRENCE_ID = EXCLUSION_RECORDS.CDT_ID
+WHERE (EXCLUSION_RECORDS.CDT_ID IS NULL) 

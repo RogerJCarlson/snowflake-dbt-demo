@@ -23,4 +23,12 @@ SELECT  measurement_id AS "measurement_id"
         , unit_source_value AS "unit_source_value"
         , value_source_value AS "value_source_value"
     FROM  
-    {{ref('MEASUREMENT')}} AS MEASUREMENT 
+    {{ref('MEASUREMENT')}} AS MEASUREMENT
+LEFT JOIN (
+    SELECT CDT_ID
+    FROM {{ref('QA_ERR_DBT')}} AS QA_ERR_DBT
+        WHERE (STANDARD_DATA_TABLE = 'MEASUREMENT')
+            AND (ERROR_TYPE IN ('FATAL', 'INVALID DATA'))
+        ) AS EXCLUSION_RECORDS
+        ON MEASUREMENT.MEASUREMENT_ID = EXCLUSION_RECORDS.CDT_ID
+WHERE (EXCLUSION_RECORDS.CDT_ID IS NULL) 

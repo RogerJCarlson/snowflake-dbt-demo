@@ -22,3 +22,11 @@ SELECT person_id AS "person_id"
       ,ethnicity_source_concept_id AS "ethnicity_source_concept_id"
   FROM
    {{ref('PERSON')}} AS PERSON
+LEFT JOIN (
+    SELECT CDT_ID
+    FROM {{ref('QA_ERR_DBT')}} AS QA_ERR_DBT
+        WHERE (STANDARD_DATA_TABLE = 'PERSON')
+            AND (ERROR_TYPE IN ('FATAL', 'INVALID DATA'))
+        ) AS EXCLUSION_RECORDS
+        ON PERSON.PERSON_ID = EXCLUSION_RECORDS.CDT_ID
+WHERE (EXCLUSION_RECORDS.CDT_ID IS NULL) 

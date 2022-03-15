@@ -12,3 +12,11 @@ SELECT location_id AS "location_id"
     , replace(location_source_value, '"', '') AS "location_source_value"
 FROM    
     {{ref('LOCATION')}} AS LOCATION
+LEFT JOIN (
+    SELECT CDT_ID
+    FROM {{ref('QA_ERR_DBT')}} AS QA_ERR_DBT
+        WHERE (STANDARD_DATA_TABLE = 'LOCATION')
+            AND (ERROR_TYPE IN ('FATAL', 'INVALID DATA'))
+        ) AS EXCLUSION_RECORDS
+        ON LOCATION.LOCATION_ID = EXCLUSION_RECORDS.CDT_ID
+WHERE (EXCLUSION_RECORDS.CDT_ID IS NULL) 
