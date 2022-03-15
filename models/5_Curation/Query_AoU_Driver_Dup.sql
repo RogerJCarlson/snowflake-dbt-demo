@@ -1,5 +1,5 @@
 --Query_AoU_Driver_Dup
-{{ config(materialized = 'view', schema='OMOP_QA') }}
+
 
 SELECT QA_ERR_DBT.Run_date
     , QA_ERR_DBT.Standard_Data_Table

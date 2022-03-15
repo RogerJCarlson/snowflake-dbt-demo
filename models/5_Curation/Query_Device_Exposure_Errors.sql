@@ -1,5 +1,4 @@
 --Query_Device_Exposure_Errors
-{{ config(materialized = 'view', schema='OMOP_QA') }}
 
 SELECT
     QA_ERR_DBT.RUN_DATE

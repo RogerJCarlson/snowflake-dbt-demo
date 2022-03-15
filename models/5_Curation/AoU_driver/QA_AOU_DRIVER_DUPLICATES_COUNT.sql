@@ -1,8 +1,6 @@
 --QA_AOU_DRIVER_DUPLICATES_COUNT 
 ---------------------------------------------------------------------
 
-{{ config(materialized = 'view', schema='OMOP_QA') }}
-
 WITH TMP_DUPES AS (
                 
 SELECT EPIC_PAT_ID,

@@ -1,7 +1,5 @@
 --Query_Condition_Errors
 
-{{ config(materialized = 'view', schema='OMOP_QA') }}
-
 SELECT
     QA_ERR_DBT.RUN_DATE
     , QA_ERR_DBT.STANDARD_DATA_TABLE
