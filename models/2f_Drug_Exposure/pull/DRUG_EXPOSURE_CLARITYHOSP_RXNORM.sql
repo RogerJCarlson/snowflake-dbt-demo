@@ -1,6 +1,6 @@
 --DRUG_EXPOSURE_CLARITYHOSP_RXNORM
 
-{{ config(materialized = 'ephemeral') }}
+{{ config(materialized = 'view') }}
 
 SELECT DISTINCT SUBSTRING(AOU_DRIVER.AOU_ID, 2, LEN(AOU_DRIVER.AOU_ID)) AS PERSON_ID
 	,AOU_ID
