@@ -1,10 +1,10 @@
 version: 2
 
 models:
-  - name: VISIT_OCCURRENCE_AMB_F2F
+  - name: V_VISIT_OCCURRENCE_AMB_F2F
     description: Subordinate view to VISIT_OCCURRENCE holding the AMBULATORY VISITS. 
 
-  - name: VISIT_OCCURRENCE_HSP
+  - name: V_VISIT_OCCURRENCE_HSP
     description: Subordinate view to VISIT_OCCURRENCE holding the HOSPITAL VISITS. 
 
   - name: VISIT_OCCURRENCE

@@ -9,5 +9,7 @@
 #    version: 0.5.1
 
 packages:
-    - local: './libs/dbt-utils'
-    - local: './libs/dbt-expectations'
+  - local: './libs/dbt-utils'
+  - local: './libs/dbt-expectations'
+#  - local: './libs/dbt_constraints-main'
+       
