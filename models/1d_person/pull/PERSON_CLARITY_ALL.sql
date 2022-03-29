@@ -1,7 +1,7 @@
 {{ config(materialized = 'view') }}
 
 SELECT DISTINCT
-    SUBSTRING(AOU_DRIVER.AOU_ID, 2, LEN(AOU_DRIVER.AOU_ID))     AS PERSON_ID
+    SUBSTRING(AOU_DRIVER.AOU_ID, 2, LEN(AOU_DRIVER.AOU_ID))::NUMBER(28,0)    AS PERSON_ID
     , YEAR(PATIENT.BIRTH_DATE)                                  AS YEAR_OF_BIRTH
     , MONTH(PATIENT.BIRTH_DATE)                                 AS MONTH_OF_BIRTH
     , DAY(PATIENT.BIRTH_DATE)                                   AS DAY_OF_BIRTH

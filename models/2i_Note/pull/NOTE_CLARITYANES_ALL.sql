@@ -1,7 +1,7 @@
 -- NOTE_CLARITYANES_ALL
 {{ config(materialized='view') }}
 
-SELECT  SUBSTRING(PAT_ENC_AMB.AoU_ID, 2, LEN(PAT_ENC_AMB.AoU_ID)) AS person_id
+SELECT  SUBSTRING(PAT_ENC_AMB.AoU_ID, 2, LEN(PAT_ENC_AMB.AoU_ID)) ::NUMBER(28,0) AS PERSON_ID
 	,PAT_ENC_AMB.AoU_ID
 	,PAT_ENC_AMB.PAT_ID
 	-----hospital encounter---------

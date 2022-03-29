@@ -13,7 +13,7 @@ SELECT distinct CDM.person.person_id AS "person_id"
 	,location_id AS "location_id"
 FROM CDM.person 
 INNER JOIN CDM.AoU_Driver
-	ON CDM.person.person_id = SUBSTRING(AoU_Driver.AoU_ID, 2, LEN(AoU_Driver.AoU_ID))
+	ON CDM.person.person_id = SUBSTRING(AOU_DRIVER.AOU_ID, 2, LEN(AOU_DRIVER.AOU_ID))::NUMERIC
 
 
 

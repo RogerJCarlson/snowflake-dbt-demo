@@ -63,7 +63,10 @@ models:
     5_Curation:
       +materialized: view
       +schema: OMOP_QA
-      
+    60_Validation:
+      +materialized: view
+      +schema: OMOP_CS
+            
 # Loads the Participants List
 on-run-start: "{{ import_participants() }}"  
 
