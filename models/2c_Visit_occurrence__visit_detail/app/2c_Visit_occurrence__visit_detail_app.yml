@@ -53,7 +53,8 @@ models:
                 severity: warn
           - relationships:
               to: ref('CARE_SITE')
-              field: CARE_SITE_ID          
+              field: CARE_SITE_ID
+              severity: warn           
               
       - name: VISIT_SOURCE_CONCEPT_ID
         description: Not Applicable - Value:0      
@@ -123,6 +124,7 @@ models:
           - relationships:
               to: ref('CARE_SITE')
               field: CARE_SITE_ID          
+              severity: warn
               
       - name: VISIT_DETAIL_SOURCE_CONCEPT_ID
         description: Not Applicable - Value:0      
