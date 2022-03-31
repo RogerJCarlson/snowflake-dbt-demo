@@ -1,11 +1,13 @@
-{{ config(materialized='table') }}
+--V_CARE_SITE_ALL
 
-SELECT DISTINCT POS_ID AS care_site_id
-    , POS_NAME AS care_site_name
-    , COALESCE(source_to_concept_map_pos.target_concept_id, 0) AS place_of_service_concept_id
-    , LOCATION_ID AS location_id
-    , left(cast(POS_ID AS VARCHAR) || ':' || POS_NAME, 50) AS care_site_source_value
-    , POS_TYPE AS place_of_service_source_value
+{{ config(materialized='view') }}
+
+SELECT DISTINCT POS_ID AS CARE_SITE_ID
+    , POS_NAME AS CARE_SITE_NAME
+    , COALESCE(SOURCE_TO_CONCEPT_MAP_POS.TARGET_CONCEPT_ID, 0) AS PLACE_OF_SERVICE_CONCEPT_ID
+    , LOCATION_ID AS LOCATION_ID
+    , LEFT(CAST(POS_ID AS VARCHAR) || ':' || POS_NAME, 50) AS CARE_SITE_SOURCE_VALUE
+    , LEFT(POS_TYPE,50) AS PLACE_OF_SERVICE_SOURCE_VALUE
     
 FROM {{ ref('CARE_SITE_CLARITY_ALL')}} AS CARE_SITE_CLARITY_ALL   
 	LEFT JOIN {{ ref('LOCATION')}}	 as LOCATION --SH_OMOP_DB_PROD.CDM.location 

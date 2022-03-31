@@ -1,4 +1,6 @@
-{{ config(materialized = 'table') }}
+--V_PERSON_ALL
+
+{{ config(materialized = 'view') }}
 
 SELECT DISTINCT PERSON_ID AS PERSON_ID
 	, COALESCE(SOURCE_TO_CONCEPT_MAP_GENDER.TARGET_CONCEPT_ID, 0) AS GENDER_CONCEPT_ID

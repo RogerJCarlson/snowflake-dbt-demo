@@ -6,7 +6,8 @@ models:
     columns: 
       - name: PROVIDER_ID
         tests:
-          - unique
+          - unique:
+              severity: warn          
           - not_null
 
       - name: CARE_SITE_ID

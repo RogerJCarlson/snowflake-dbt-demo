@@ -56,8 +56,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   AOU_OMOP:
     1a_location:
-      app:
-        +materialized: view
       pull:
         +materialized: view
     5_Curation:

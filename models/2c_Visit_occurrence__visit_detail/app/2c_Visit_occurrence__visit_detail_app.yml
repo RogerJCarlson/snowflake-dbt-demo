@@ -107,7 +107,7 @@ models:
               to: source('CDM','CONCEPT')
               field: CONCEPT_ID   
 
-      - name: ATTENDING_PROV
+      - name: PROVIDER_ID
         tests:
           - not_null:
               config:

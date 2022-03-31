@@ -11,7 +11,7 @@ SELECT DISTINCT
     , to_char(VISIT_DETAIL_END_DATE) AS "visit_detail_end_date"
     , to_char(VISIT_DETAIL_END_DATETIME)  AS "visit_detail_end_datetime"
     , VISIT_DETAIL_TYPE_CONCEPT_ID AS "visit_detail_type_concept_id"
-    , ATTENDING_PROV AS "provider_id"
+    , PROVIDER_ID AS "provider_id"
     , CARE_SITE_ID AS "care_site_id"
     , VISIT_DETAIL_SOURCE_VALUE AS "visit_detail_source_value"
     , VISIT_DETAIL_SOURCE_CONCEPT_ID AS "visit_detail_source_concept_id"

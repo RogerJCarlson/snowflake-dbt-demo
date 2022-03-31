@@ -1,8 +1,0 @@
-
-{{ config(materialized='table') }}
-
-SELECT DISTINCT
-      SEQ_LOCATION.NEXTVAL AS LOCATION_ID
-	, LOCATION_CLARITY_ALL.*
-FROM 	
- {{ref('LOCATION_CLARITY_ALL')}} 

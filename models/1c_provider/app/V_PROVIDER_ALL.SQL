@@ -1,4 +1,6 @@
-{{ config(materialized = 'table') }}
+--V_PROVIDER_ALL
+
+{{ config(materialized = 'view') }}
 
 SELECT DISTINCT PROV_ID AS PROVIDER_ID
     ,PROV_NAME AS PROVIDER_NAME
