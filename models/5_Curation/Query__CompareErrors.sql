@@ -19,6 +19,7 @@ INNER JOIN QA_LOG_DBT ON
     (QA_LOG.METRIC_FIELD = upper(QA_LOG_DBT.Metric_field))
     AND (QA_LOG.QA_METRIC = upper(QA_LOG_DBT.QA_Metric))
     AND (QA_LOG.STANDARD_DATA_TABLE = upper(QA_LOG_DBT.Standard_Data_Table))
+    AND ((QA_LOG.ERROR_TYPE = upper(QA_LOG_DBT.Error_Type)) or (QA_LOG.ERROR_TYPE is null and QA_LOG_DBT.Error_Type is not null) or (QA_LOG.ERROR_TYPE is not null and QA_LOG_DBT.Error_Type is null))
 WHERE
     (
         ((QA_LOG.ERROR_TYPE) IS NOT NULL)
